@@ -49,8 +49,25 @@ public:
          *
          * We would usually also need to divide by the PDF here but for the point light we have a discrete probability of one.
          */
-        float radius = 1.0;
-        float attenuation = 2.0f / (radius * radius) * (1 - eRec.distance / std::sqrt(eRec.distance * eRec.distance + radius * radius));
+        constexpr float r = 1.5f;
+        const float d = eRec.distance;
+
+        // physicall correct implementation
+        float attenuation = 1.0f / (d * d);
+
+        // formula by:
+        //
+        // Cem Yuksel. Point light attenuation without singularity. In Special
+        // Interest Group on Computer Graphics and Interactive Techniques
+        // Conference Talks, SIGGRAPH ’20, New York, NY, USA, 2020.
+        // Association for Computing Machinery.
+
+        // proposed
+        //float attenuation = 2.0f / (r * r) * (1 - d / std::sqrt(d * d + r * r));
+
+        // ad-hoc
+        //float attenuation = 1.0f / (d * d + (r * r) / 2.0f);
+
         return m_intensity * attenuation;
     }
 

@@ -4,7 +4,6 @@
     Copyright (c) 2012 by Wenzel Jakob and Steve Marschner.
 */
 
-#include <cmath>
 #include <nori/integrator.h>
 #include <nori/sampler.h>
 #include <nori/scene.h>
