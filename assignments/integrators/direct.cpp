@@ -64,29 +64,7 @@ public:
 
             auto forshortening_factor = Frame::cosTheta(intersection.toLocal(direction));
 
-            // attenuation function from:
-            //
-            // Cem Yuksel. Point light attenuation without singularity. In
-            // Special Interest Group on Computer Graphics and Interactive
-            // Techniques Conference Talks, SIGGRAPH '20, New York, NY, USA,
-            // 2020. Association for Computing Machinery.
-
-            float d = emitter_record.distance;
-            constexpr float r = 1.5f;
-
-            // no attenuation
-            //float attenuation = 1.0f;
-
-            // physically correct implementation
-            //float attenuation = 1.0f / (d * d);
-
-            // proposed formula
-            float attenuation = 2.0f / (r * r) * (1 - d / std::sqrt(d * d + r * r));
-
-            // proposed ad-hoc formula
-            //float attenuation = 1.0f / (d * d + (r * r) / 2.0f);
-
-            Color3f color = bsdf_color * radiance * forshortening_factor * attenuation;
+            Color3f color = bsdf_color * radiance * forshortening_factor;
             result += color;
         }
 
