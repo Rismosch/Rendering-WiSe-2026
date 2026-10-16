@@ -6,6 +6,7 @@
  */
 
 
+#include "nori/common.h"
 #include <nori/integrator.h>
 #include <nori/scene.h>
 
@@ -21,8 +22,15 @@ public:
     }
 
     Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
-        //TODO: Exercise 1.2: Implement the Normal integrator
-        throw NoriException("NormalIntegrator::Li() is not yet implemented!");
+        Intersection intersection;
+        if (!scene->rayIntersect(cameraRay, intersection)) {
+            return {0.0f};
+        }
+
+        Vector3f world_normal = intersection.toWorld({0,0,1});
+        Vector3f scaled = world_normal / 2.0 + Vector3f{0.5f};
+
+        return {scaled.x(), scaled.y(), scaled.z()};
     }
 
     std::string toString() const override {
