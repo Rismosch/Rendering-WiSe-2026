@@ -6,7 +6,6 @@
  */
 
 
-#include "nori/common.h"
 #include <nori/integrator.h>
 #include <nori/scene.h>
 
