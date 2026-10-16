@@ -22,7 +22,18 @@ public:
 
     Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
         //TODO: Exercise 1.2: Implement the Normal integrator
-        throw NoriException("NormalIntegrator::Li() is not yet implemented!");
+        
+        Intersection intersection; //Declare an empty intersection 
+        if (scene->rayIntersect(cameraRay, intersection)){ //Fill the intersection with the intersection data
+            Vector3f world_normal = intersection.toWorld(Vector3f(0,0,1)); // get the intersection's point world normal
+            Color3f color = Color3f(world_normal.x()/2.0 + 0.5, world_normal.y()/2.0 + 0.5, world_normal.z()/2.0 + 0.5); //Transform from [-1,1] to [0,1] for a color
+            return color;
+        } 
+        else{
+            return Color3f(0.0f);
+        }
+        
+        //throw NoriException("NormalIntegrator::Li() is not yet implemented!");
     }
 
     std::string toString() const override {
