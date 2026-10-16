@@ -2,3 +2,5 @@ build
 *.bak
 *.DS_Store
 *.zip
+
+!ext/tbb/build/
