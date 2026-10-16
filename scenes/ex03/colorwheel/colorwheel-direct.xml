@@ -1,0 +1,2576 @@
+<scene>
+    <!-- Independent sample generator, 32 samples per pixel -->
+	<sampler type="independent">
+		<integer name="sampleCount" value="32"/>
+	</sampler>
+
+    <!-- Render the direct illumination -->
+	<integrator type="direct"/>
+
+    <!-- Load the Stanford bunny (https://graphics.stanford.edu/data/3Dscanrep/) -->
+	<mesh type="obj">
+		<string name="filename" value="meshes/bunny.obj"/>
+		<transform name="toWorld">
+			<scale value="0.1, 0.1, 0.1"/>
+			<translate value="0.015, -0.005, 0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.5, 0.5, 0.5"/>
+		</bsdf>
+	</mesh>
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/floor.obj"/>
+		<transform name="toWorld">
+			<scale value="10, 1, 10"/>
+		</transform>
+		<!--<bsdf type="diffuse">
+			<color name="albedo" value="0.5, 0.5, 0.5"/>
+		</bsdf>-->
+		<bsdf type="phong">
+			<color name="diffuse" value="0.5, 0.5, 0.5"/>
+			<color name="specular" value="0.1, 0.1, 0.1"/>
+			<float name="exponent" value="100"/>
+		</bsdf>
+	</mesh>
+
+	<!-- Render the scene viewed by a perspective camera -->
+	<camera type="perspective">
+        <!-- 3D origin, target point, and 'up' vector -->
+		<transform name="toWorld">
+            <lookat target="0.0033771, 0.0190913, -0.239922"
+                    origin="-0.0165182, 0.249011, 0.7331"
+                    up="0.02217446, 0.938206, -0.229822"/>
+		</transform>
+
+		<!-- Field of view: 30 degrees -->
+		<float name="fov" value="16"/>
+
+		<!-- 768 x 768 pixels -->
+		<integer name="width" value="768"/>
+		<integer name="height" value="768"/>
+	</camera>
+
+	<!-- emitters -->
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="0"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.01, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="1"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.03, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="2"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.05, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="3"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.06, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="4"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.08, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="5"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.09, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="6"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.11, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="7"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.13, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="8"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.15, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="9"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.16, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="10"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.18, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="11"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.19, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="12"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.21, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="13"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.23, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="14"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.25, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="15"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.26, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="16"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.28, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="17"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.3, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="18"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.31, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="19"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.33, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="20"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.35, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="21"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.36, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="22"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.38, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="23"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.4, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="24"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.41, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="25"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.43, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="26"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.44, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="27"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.46, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="28"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.48, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="29"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.5, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="30"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.51, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="31"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.53, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="32"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.54, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="33"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.56, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="34"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.58, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="35"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.6, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="36"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.61, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="37"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.63, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="38"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.65, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="39"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.66, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="40"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.68, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="41"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.7, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="42"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.71, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="43"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.73, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="44"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.75, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="45"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.76, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="46"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.78, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="47"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.8, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="48"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.81, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="49"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.83, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="50"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.85, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="51"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.86, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="52"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.88, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="53"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.89, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="54"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.91, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="55"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.93, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="56"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.95, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="57"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.96, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="58"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.98, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="59"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="60"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.98, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="61"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.96, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="62"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.95, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="63"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.93, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="64"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.91, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="65"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.9, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="66"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.88, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="67"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.86, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="68"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.84, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="69"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.83, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="70"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.81, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="71"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.79, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="72"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.78, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="73"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.76, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="74"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.75, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="75"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.73, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="76"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.71, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="77"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.7, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="78"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.68, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="79"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.66, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="80"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.64, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="81"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.63, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="82"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.61, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="83"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.6, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="84"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.58, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="85"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.56, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="86"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.55, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="87"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.53, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="88"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.51, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="89"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.5, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="90"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.48, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="91"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.46, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="92"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.44, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="93"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.43, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="94"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.41, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="95"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.39, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="96"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.38, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="97"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.36, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="98"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.34, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="99"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.33, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="100"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.31, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="101"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.3, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="102"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.28, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="103"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.26, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="104"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.25, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="105"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.23, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="106"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.21, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="107"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.2, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="108"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.18, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="109"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.16, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="110"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.14, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="111"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.13, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="112"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.11, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="113"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.1, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="114"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.08, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="115"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.06, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="116"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.04, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="117"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.03, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="118"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.01, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="119"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="120"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.01"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="121"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.03"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="122"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.04"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="123"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.06"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="124"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.08"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="125"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.09"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="126"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.11"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="127"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.13"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="128"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.14"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="129"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.16"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="130"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.18"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="131"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.19"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="132"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.21"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="133"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.23"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="134"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.25"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="135"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.26"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="136"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.28"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="137"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.3"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="138"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.31"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="139"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.33"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="140"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.35"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="141"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.36"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="142"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.38"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="143"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.4"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="144"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.41"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="145"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.43"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="146"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.45"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="147"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.46"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="148"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.48"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="149"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.5"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="150"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.51"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="151"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.53"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="152"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.54"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="153"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.56"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="154"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.58"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="155"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.6"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="156"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.61"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="157"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.63"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="158"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.64"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="159"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.66"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="160"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.68"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="161"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.7"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="162"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.71"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="163"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.73"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="164"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.75"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="165"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.76"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="166"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.78"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="167"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.79"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="168"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.81"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="169"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.83"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="170"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.84"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="171"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.86"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="172"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.88"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="173"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.89"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="174"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.91"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="175"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.93"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="176"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.94"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="177"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.96"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="178"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 0.98"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="179"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 1.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="180"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.98, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="181"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.96, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="182"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.95, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="183"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.93, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="184"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.91, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="185"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.89, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="186"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.88, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="187"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.86, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="188"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.84, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="189"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.83, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="190"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.81, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="191"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.79, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="192"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.78, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="193"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.76, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="194"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.75, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="195"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.73, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="196"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.71, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="197"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.69, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="198"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.68, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="199"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.66, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="200"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.64, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="201"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.63, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="202"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.61, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="203"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.6, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="204"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.58, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="205"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.56, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="206"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.55, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="207"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.53, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="208"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.51, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="209"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.5, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="210"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.48, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="211"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.46, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="212"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.45, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="213"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.43, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="214"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.41, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="215"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.4, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="216"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.38, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="217"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.36, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="218"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.35, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="219"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.33, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="220"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.31, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="221"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.29, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="222"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.28, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="223"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.26, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="224"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.25, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="225"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.23, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="226"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.21, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="227"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.2, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="228"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.18, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="229"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.16, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="230"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.14, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="231"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.13, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="232"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.11, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="233"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.09, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="234"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.08, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="235"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.06, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="236"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.04, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="237"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.03, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="238"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.01, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="239"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.0, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="240"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.01, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="241"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.03, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="242"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.05, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="243"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.06, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="244"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.08, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="245"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.09, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="246"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.11, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="247"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.13, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="248"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.15, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="249"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.16, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="250"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.18, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="251"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.19, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="252"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.21, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="253"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.23, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="254"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.25, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="255"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.26, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="256"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.28, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="257"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.29, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="258"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.31, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="259"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.33, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="260"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.34, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="261"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.36, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="262"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.38, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="263"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.39, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="264"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.41, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="265"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.43, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="266"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.45, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="267"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.46, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="268"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.48, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="269"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.5, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="270"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.51, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="271"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.53, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="272"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.54, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="273"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.56, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="274"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.58, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="275"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.6, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="276"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.61, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="277"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.63, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="278"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.65, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="279"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.66, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="280"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.68, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="281"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.7, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="282"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.71, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="283"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.73, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="284"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.75, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="285"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.76, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="286"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.78, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="287"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.8, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="288"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.81, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="289"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.83, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="290"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.84, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="291"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.86, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="292"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.88, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="293"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.9, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="294"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.91, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="295"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.93, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="296"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.94, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="297"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.96, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="298"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="0.98, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="299"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 1.0"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="300"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.98"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="301"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.96"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="302"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.95"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="303"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.93"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="304"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.91"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="305"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.9"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="306"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.88"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="307"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.86"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="308"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.85"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="309"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.83"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="310"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.81"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="311"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.79"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="312"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.78"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="313"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.76"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="314"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.75"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="315"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.73"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="316"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.71"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="317"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.7"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="318"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.68"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="319"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.66"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="320"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.64"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="321"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.63"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="322"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.61"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="323"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.59"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="324"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.58"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="325"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.56"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="326"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.54"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="327"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.53"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="328"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.51"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="329"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.5"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="330"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.48"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="331"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.46"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="332"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.44"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="333"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.43"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="334"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.41"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="335"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.4"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="336"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.38"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="337"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.36"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="338"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.34"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="339"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.33"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="340"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.31"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="341"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.3"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="342"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.28"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="343"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.26"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="344"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.25"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="345"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.23"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="346"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.21"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="347"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.2"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="348"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.18"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="349"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.16"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="350"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.15"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="351"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.13"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="352"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.11"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="353"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.1"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="354"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.08"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="355"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.06"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="356"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.04"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="357"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.03"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="358"/>
+		</transform>
+	</emitter>
+	<emitter type="point">
+		<color name="power" value="1.0, 0.0, 0.01"/>
+		<transform name="toWorld">
+			<translate value="1, 1, 0"/>
+			<rotate axis="0, 1, 0" angle="359"/>
+		</transform>
+	</emitter>
+
+</scene>
