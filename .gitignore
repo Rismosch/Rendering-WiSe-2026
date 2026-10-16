@@ -1,6 +1,15 @@
+# build files
 build
 *.bak
 *.DS_Store
 *.zip
 
+# lsb integration
+compile_commands.json
+
+# nori output
+*.exr
+*.png
+
+# exceptions
 !ext/tbb/build/
