@@ -4,6 +4,8 @@
     Copyright (c) 2012 by Wenzel Jakob and Steve Marschner.
 */
 
+#include "nori/common.h"
+#include <iostream>
 #include <nori/integrator.h>
 #include <nori/sampler.h>
 #include <nori/scene.h>
@@ -27,14 +29,48 @@ public:
      * (have a look at assignments/integrators/depth.cpp for an example)
      */
     Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
-        size_t N = sampler->getSampleCount();
-        const auto& emitters = scene->getEmitters();
-        for (const auto& emitter: emitters) {
-            emitter->sampleDirect(EmitterQueryRecord &eRec, Point2f sample)
+        Color3f result{0.0f};
+
+        Intersection intersection;
+        if (!scene->rayIntersect(cameraRay, intersection)) {
+            return result;
         }
 
-        //TODO: Exercise 1.3: Implement the Direct Light integrator
-        throw NoriException("DirectLightIntegrator::Li() is not yet implemented!");
+        EmitterQueryRecord emitter_record{intersection.p};
+
+        // iterate all emitters
+        const auto& emitters = scene->getEmitters();
+        for (const auto& emitter: emitters) {
+            // sample emitter
+            Point2f sample = sampler->next2D();
+            Color3f radiance = emitter->sampleDirect(emitter_record, sample);
+
+            // check for occlusion
+            Vector3f origin = emitter_record.p;
+            Vector3f direction = emitter_record.ep - emitter_record.p;
+            Ray3f ray{origin, direction, Epsilon, 1-Epsilon};
+
+            if (scene->rayIntersect(ray)) {
+                continue;
+            }
+
+            auto bsdf = intersection.mesh->getBSDF();
+            BSDFQueryRecord bsdf_record{
+                intersection.toLocal(-cameraRay.d),
+                intersection.toLocal(direction),
+                ESolidAngle,
+                intersection.uv,
+            };
+            Color3f bsdf_color = bsdf->eval(bsdf_record);
+
+            auto forshortening_factor = Frame::cosTheta(intersection.toLocal(direction));
+
+            Color3f color = bsdf_color * radiance * forshortening_factor;
+            result += color;
+        }
+
+
+        return result;
     }
 
     std::string toString() const override {
