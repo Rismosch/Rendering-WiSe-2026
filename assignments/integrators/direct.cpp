@@ -27,6 +27,12 @@ public:
      * (have a look at assignments/integrators/depth.cpp for an example)
      */
     Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
+        size_t N = sampler->getSampleCount();
+        const auto& emitters = scene->getEmitters();
+        for (const auto& emitter: emitters) {
+            emitter->sampleDirect(EmitterQueryRecord &eRec, Point2f sample)
+        }
+
         //TODO: Exercise 1.3: Implement the Direct Light integrator
         throw NoriException("DirectLightIntegrator::Li() is not yet implemented!");
     }
