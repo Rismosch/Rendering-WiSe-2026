@@ -35,8 +35,17 @@ public:
             return result;
         }
 
+        // 1. Compute emitted radiance if emitter
+        if (intersection.mesh->isEmitter()) {
+            Vector3f dir = intersection.p - cameraRay.o;
+            float distance = dir.norm();
+            dir /= distance;
+            result += intersection.mesh->getEmitter()->eval(intersection.geoFrame.toLocal(-dir));
+        }
+
         EmitterQueryRecord emitter_record{intersection.p};
 
+        // 2. Compute reflected radiance from other emitters
         // iterate all emitters
         const auto& emitters = scene->getEmitters();
         for (const auto& emitter: emitters) {
@@ -61,8 +70,9 @@ public:
                 intersection.uv,
             };
             Color3f bsdf_color = bsdf->eval(bsdf_record);
-
-            auto forshortening_factor = Frame::cosTheta(intersection.toLocal(direction));
+            
+            // Normalizing direction vector to compute cosine of the incident angel without scaling by distance 
+            auto forshortening_factor = Frame::cosTheta(intersection.toLocal(direction.normalized()));
 
             Color3f color = bsdf_color * radiance * forshortening_factor;
             result += color;
