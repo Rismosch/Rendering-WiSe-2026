@@ -23,3 +23,6 @@ compile_commands.json
 *.log
 *.fls
 *.out
+*.pdf
+
+!reports/assignment2/common/unilogo.pdf
