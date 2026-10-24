@@ -13,3 +13,16 @@ compile_commands.json
 
 # exceptions
 !ext/tbb/build/
+
+# latex files
+*.synctex.gz
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.log
+*.fls
+*.out
+*.pdf
+
+!reports/assignment2/common/unilogo.pdf
