@@ -299,7 +299,7 @@
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<path stroke='black'  d='M108.00,72.01 L108.00,403.20 L566.39,403.20 L566.39,72.01 L108.00,72.01 Z  '/>	<g transform="translate(25.60,237.61) rotate(270.00)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
-		<text><tspan font-family="DejaVu Sans" >|I</tspan><tspan font-family="DejaVu Sans"  font-size="12.8" dy="4.80px">3</tspan><tspan font-family="DejaVu Sans"  dy="-4.80px"> - F</tspan><tspan font-family="DejaVu Sans"  font-size="12.8" dy="4.80px">N</tspan><tspan font-family="DejaVu Sans"  dy="-4.80px">|</tspan></text>
+		<text><tspan font-family="DejaVu Sans" >|I_3 - F_N|</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
