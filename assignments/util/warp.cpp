@@ -20,13 +20,14 @@ float Warp::squareToUniformSquarePdf(const Point2f &sample) {
 }
 
 Point2f Warp::squareToUniformTriangle(const Point2f &sample) {
-    // TODO: Exercise 2.4 a): Sample points uniformly on the unit triangle (0,0) -- (1,0) -- (1,1)
-    throw NoriException("Warp::squareToUniformTriangle() is not yet implemented!");
+    // inversion sampling 
+    return {sqrt(sample.x()), sqrt(sample.x()) * sample.y()};
 }
 
 float Warp::squareToUniformTrianglePdf(const Point2f &p) {
-    // TODO: Exercise 2.4 a): Return the PDF for points sampled on the unit triangle (or the PDF for those outside of it!)
-    throw NoriException("Warp::squareToUniformTrianglePdf() is not yet implemented!");
+    // uniform triangle => constant pdf everywhere
+    // area of the unit triangel = 1/2 => pdf of 2
+    return (p.y() >= 0 && (1 - p.x() + p.y() <= 1) && p.x() <= 1) ? 2.0f : 0.0f;
 }
 
 Point2f Warp::squareToUniformDisk(const Point2f &sample) {
