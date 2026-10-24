@@ -1,6 +1,28 @@
+# build files
 build
 *.bak
 *.DS_Store
 *.zip
 
+# lsb integration
+compile_commands.json
+
+# nori output
+*.exr
+*.png
+
+# exceptions
 !ext/tbb/build/
+
+# latex files
+*.synctex.gz
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.log
+*.fls
+*.out
+*.pdf
+
+!reports/assignment2/common/unilogo.pdf

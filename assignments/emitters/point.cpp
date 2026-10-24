@@ -49,7 +49,9 @@ public:
          *
          * We would usually also need to divide by the PDF here but for the point light we have a discrete probability of one.
          */
-        return m_intensity/(eRec.distance*eRec.distance);
+        float radius = 1.0;
+        float attenuation = 2.0f / (radius * radius) * (1 - eRec.distance / std::sqrt(eRec.distance * eRec.distance + radius * radius));
+        return m_intensity * attenuation;
     }
 
     float pdfDirect(const EmitterQueryRecord &eRec) const override {
