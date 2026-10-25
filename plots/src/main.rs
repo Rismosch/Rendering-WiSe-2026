@@ -1,5 +1,6 @@
 pub mod gnuplot;
 
+use std::f64::consts::FRAC_PI_2;
 use std::f64::consts::PI;
 
 use ris_error::prelude::*;
@@ -272,6 +273,67 @@ fn run_2_3(rng: &mut Rng) -> RisResult<()> {
         }
         gnuplot.run("e")?;
     }
+
+    // h(x)
+    {
+        let mut samples = [(0.0, 0.0); SAMPLE_COUNT];
+        for (x, y) in samples.iter_mut() {
+            *x = rng.next_u128() as f64 / (u128::MAX as f64) * 2.0;
+            *y = rng.next_u128() as f64 / (u128::MAX as f64) * 2.5;
+        }
+
+        let acceppted = samples.iter()
+            .cloned()
+            .filter(|&(x, y)| {
+                if x < 0.0 {
+                    return false;
+                }
+
+                if x > 1.0 {
+                    return false;
+                }
+
+                let h_x = FRAC_PI_2 * f64::sin(FRAC_PI_2 * x);
+                y <= h_x
+            })
+            .collect::<Vec<_>>();
+
+        let rejected = samples.iter()
+            .cloned()
+            .filter(|x| {
+                !acceppted.contains(x)
+            })
+            .collect::<Vec<_>>();
+
+        gnuplot.run("set terminal svg enhanced font 'DejaVu Sans,16'")?;
+        gnuplot.run("set output 'assignment_2_3_h.svg'")?;
+
+        gnuplot.run(format!(
+            "set title 'Rejection Sampling for h(x) with {} samples'",
+            SAMPLE_COUNT,
+        ))?;
+        gnuplot.run("set xlabel 'x'")?;
+        gnuplot.run("set ylabel 'y'")?;
+
+        gnuplot.run("set key opaque")?;
+        gnuplot.run("set xrange [0:2]")?;
+        gnuplot.run("h(x) = (0 <= x && x <= 1) ? pi / 2 * sin(pi / 2 * x) : 0")?;
+
+        gnuplot.run("plot h(x) lc rgb 'blue', \\")?;
+        gnuplot.run("'-' using 1:2 with points pt 1 lc rgb 'green' title 'Accepted Samples', \\")?;
+        gnuplot.run("'-' using 1:2 with points pt 2 lc rgb 'red' title 'Rejected Samples'")?;
+
+        for &(x, y) in acceppted.iter() {
+            gnuplot.run(format!("{} {}", x, y))?;
+        }
+        gnuplot.run("e")?;
+
+        for &(x, y) in rejected.iter() {
+            gnuplot.run(format!("{} {}", x, y))?;
+        }
+        gnuplot.run("e")?;
+    }
+
 
     Ok(())
 }
