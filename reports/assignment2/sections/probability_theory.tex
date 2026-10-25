@@ -1,1 +1,21 @@
-Placeholder Text
+%\documentclass{article}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%
+%\begin{document}
+
+\begin{enumerate}
+    \item[a)] Describe the difference between discrete and continuous probability distributions.
+
+    A discrete probability distribution can have results from a set of possible outcomes \(X \sim \{x_1, x_2, \ldots\}\) with probability \(P(x_i)\). In contrast, a continuous probability distribution has an infinite number of different outcomes in defined ranges (e.g.\ a number from \([0, 1]\)), with the probability of the outcomes measured in intervals and a CDF.
+
+    \item[b)] What does the probability density function (PDF) \(p(x_i)\) describe? Is it possible that \(p(x_i) > 1\)? (for discrete and continuous)
+
+    The Probability Density Function (PDF) describes the probability distribution in a random variable. The PDF values range from 0 (no probability) to 1 (guaranteed outcome). In discrete random variables, each outcome has a value of \(0 \le P(x_i) \le 1\). In continuous random variables, the probability of a single outcome is 0, so it is instead measured in ranges: \(0 \le p(a < x < b) \le 1\). Since the only restriction in this case is for the integral over the entire interval to be exactly 1, this means that a PDF in a specific point for a continuous random variable can be bigger than one. For example, the continuous uniform distribution over the range \([0, 1/2]\) has a PDF of \(p(x) = 2\) over this interval and \(p(x) = 0\) on any other point.
+
+    \item[c)] What does the cumulative density function (CDF) \(P(x_i)\) describe? What is its relation to the PDF? Is it possible that \(P(x_i) > 1\)? (for discrete and continuous)
+
+    The Cumulative Density Function is the integration of the PDF over its range. This describes the probability of a particular outcome or any before it. \(P(x_i) = p(x \le x_i)\). Since probabilities only go from 0 to 1, this must mean that a CDF over the entire domain of the PDF must be exactly 1 for continuous or discrete random variables.
+\end{enumerate}
+
+%\end{document}
