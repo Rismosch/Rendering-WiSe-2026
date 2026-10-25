@@ -1,0 +1,114 @@
+
+As we want to integrate over parts of a sphere, the simplest approach is to transform everything into spherical coordinates and compute the integrals that way.
+
+In spherical coordinates, we have:
+\begin{gather*}
+x = r\sin\theta\cos\phi, \qquad
+y = r\sin\theta\sin\phi, \qquad
+z = r\cos\theta.
+\end{gather*}
+
+With $r=1$, this gives us:
+\begin{gather*}
+\omega =
+\begin{bmatrix}
+\sin\theta\cos\phi \\
+\sin\theta\sin\phi \\
+\cos\theta
+\end{bmatrix}
+\end{gather*}
+and
+\begin{gather*}
+d\omega = \sin\theta \, d\theta \, d\phi.
+\end{gather*}
+
+\textbf{i.}
+
+For the positive hemisphere, $\theta \in [0,\frac{\pi}{2}]$ and $\phi \in [0,2\pi]$:
+\begin{gather*}
+\int_{S^2_+} \cos\theta \, d\omega
+= \int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}}
+\cos\theta\sin\theta \, d\theta \, d\phi.
+\end{gather*}
+
+Here we can use $u$-substitution with $u=\sin\theta$ and $du=\cos\theta\,d\theta$:
+\begin{gather*}
+\int_{0}^{\frac{\pi}{2}} \cos\theta\sin\theta \, d\theta
+= \int_{0}^{1} u \, du
+= \frac{1}{2}.
+\end{gather*}
+
+And for the outer integral:
+\begin{gather*}
+\int_{0}^{2\pi} \frac{1}{2} \, d\phi = \pi.
+\end{gather*}
+
+\textbf{ii.}
+
+For the entire sphere, $\theta \in [0,\pi]$ and $\phi \in [0,2\pi]$:
+\begin{align*}
+\int_{S^2} \omega \, d\omega
+&= \int_{0}^{2\pi} \int_{0}^{\pi}
+\begin{bmatrix}
+\sin\theta\cos\phi \\
+\sin\theta\sin\phi \\
+\cos\theta
+\end{bmatrix}
+\sin\theta \, d\theta \, d\phi \\
+&= \int_{0}^{2\pi} \int_{0}^{\pi}
+\begin{bmatrix}
+\sin^2\theta\cos\phi \\
+\sin^2\theta\sin\phi \\
+\cos\theta\sin\theta
+\end{bmatrix}
+\, d\theta \, d\phi.
+\end{align*}
+
+Here we can integrate each component separately.
+The first two components will be zero, since:
+\begin{gather*}
+\int_{0}^{2\pi} \cos\phi \, d\phi = 0, \\
+\int_{0}^{2\pi} \sin\phi \, d\phi = 0.
+\end{gather*}
+
+For the $z$ component, we can use the same $u$-substitution as in part (i):
+\begin{gather*}
+\int_{0}^{\pi} \cos\theta\sin\theta \, d\theta
+= \int_{0}^{0} u \, du = 0.
+\end{gather*}
+
+This gives us:
+\begin{gather*}
+\boxed{
+\int_{S^2} \omega \, d\omega =
+\begin{bmatrix}
+0 \\ 0 \\ 0
+\end{bmatrix}
+}
+\end{gather*}
+
+\textbf{iii.}
+
+For the positive hemisphere, the $x$ and $y$ components will also be zero, as the integrals over $\phi$ remain unchanged.
+
+For the $z$ component, we can again use $u$-substitution with $u=\sin\theta$ and $du=\cos\theta\,d\theta$:
+\begin{gather*}
+\int_{0}^{\frac{\pi}{2}} \cos\theta\sin\theta \, d\theta
+= \int_{0}^{1} u \, du
+= \frac{1}{2}.
+\end{gather*}
+
+And for the outer integral:
+\begin{gather*}
+\int_{0}^{2\pi} \frac{1}{2} \, d\phi = \pi.
+\end{gather*}
+
+This gives us:
+\begin{gather*}
+\boxed{
+\int_{S^2_+} \omega \, d\omega =
+\begin{bmatrix}
+0 \\ 0 \\ \pi
+\end{bmatrix}
+}
+\end{gather*}
