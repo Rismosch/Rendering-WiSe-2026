@@ -112,3 +112,40 @@ This gives us:
 \end{bmatrix}
 }
 \end{gather*}
+
+
+\textbf{iv.}
+
+For the negative hemisphere, the $x$ and $y$ components will again be zero, as the integrals over $\phi$ remain unchanged.
+
+For the $z$ component, we integrate over
+$\theta \in [\frac{\pi}{2},\pi]$ and $\phi \in [0,2\pi]$:
+\begin{gather*}
+\int_{0}^{2\pi}\int_{\frac{\pi}{2}}^{\pi}
+\cos\theta\sin\theta \, d\theta \, d\phi.
+\end{gather*}
+
+Using $u$-substitution with $u=\sin\theta$ and
+$du=\cos\theta\,d\theta$:
+\begin{gather*}
+\int_{\frac{\pi}{2}}^{\pi}
+\cos\theta\sin\theta \, d\theta
+= \int_{1}^{0} u \, du
+= \left[\frac{u^2}{2}\right]_{1}^{0}
+= -\frac{1}{2}.
+\end{gather*}
+
+And for the outer integral:
+\begin{gather*}
+\int_{0}^{2\pi} -\frac{1}{2} \, d\phi = -\pi.
+\end{gather*}
+
+This gives us:
+\begin{gather*}
+\boxed{
+\int_{S^2_-} \omega \, d\omega =
+\begin{bmatrix}
+0 \\ 0 \\ -\pi
+\end{bmatrix}
+}
+\end{gather*}
