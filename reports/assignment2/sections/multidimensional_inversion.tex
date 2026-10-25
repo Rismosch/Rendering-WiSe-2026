@@ -1,0 +1,36 @@
+\section{f(x)}
+
+\begin{align}
+q(x)
+&= \int_{-\infty}^x f(x)\,dx \\
+&= \int_{0.4}^x 5\,dx \\
+&= \left[5x\right]_{0.4}^{x} \\
+&= (5x + c) - (5 \cdot 0.4 + c) \\
+&= 5x + c - 5 \cdot 0.4 - c \\
+&= 5x - 2 \\
+\\
+x &= 5 q^{-1}(x) -2 \\
+q^{-1}(x) &= \frac{x+2}{5}
+\end{align}
+
+\section{g(x)}
+
+
+\section{h(x)}
+
+\begin{align}
+q(x)
+&= \int_{-\infty}^x h(x)\,dx \\
+&= \int_{0}^x \frac{\pi}{2} \sin\left(\frac{\pi}{2} x\right)\,dx \\
+&= \left[-\cos\left(\frac{\pi}{2} x\right) + c\right]_0^x \\
+&= \left(-\cos\left(\frac{\pi}{2} x\right) + c\right) - \left(-\cos\left(\frac{\pi}{2}\cdot 0\right) + c\right)\\
+&= \left(-\cos\left(\frac{\pi}{2} x\right) + c\right) - \left(-1 + c\right)\\
+&= -\cos\left(\frac{\pi}{2} x\right) + c + 1 - c\\
+&= -\cos\left(\frac{\pi}{2} x\right) + 1\\
+\\
+x &= -\cos\left(\frac{\pi}{2} q^{-1}(x)\right) + 1\\
+-x + 1 &= \cos\left(\frac{\pi}{2} q^{-1}(x)\right) \\
+\cos^{-1}(-x + 1) &= \frac{\pi}{2} q^{-1}(x) \\
+\frac{2}{\pi} \cos^{-1}(-x + 1) &= q^{-1}(x) \\
+q^{-1}(x) &= \frac{2}{\pi} \cos^{-1}(-x + 1) \\
+\end{align}
