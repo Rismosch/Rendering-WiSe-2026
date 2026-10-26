@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"  standalone="no"?>
+<?xml version="1.0" encoding="windows-1252"  standalone="no"?>
 <svg 
  width="600" height="480"
  viewBox="0 0 600 480"
@@ -299,19 +299,19 @@
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<path stroke='black'  d='M108.00,72.01 L108.00,403.20 L566.39,403.20 L566.39,72.01 L108.00,72.01 Z  '/>	<g transform="translate(25.60,237.61) rotate(270.00)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
-		<text><tspan font-family="DejaVu Sans" >|I_3 - F_N|</tspan></text>
+		<text><tspan font-family="DejaVu Sans" >$|I_3 - F_N|$</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(337.19,468.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
-		<text><tspan font-family="DejaVu Sans" >N</tspan></text>
+		<text><tspan font-family="DejaVu Sans" >$N$</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(337.19,41.21)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
-		<text><tspan font-family="DejaVu Sans" >Integral 3</tspan></text>
+		<text><tspan font-family="DejaVu Sans" >$\int_0^1 sin(x)cos(x)\,dx \approx 0.354$</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">

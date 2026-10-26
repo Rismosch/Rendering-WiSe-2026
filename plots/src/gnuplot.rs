@@ -8,6 +8,7 @@ use ris_error::prelude::*;
 #[derive(Debug)]
 pub struct Gnuplot {
     process: Child,
+    debug: bool,
 }
 
 impl Drop for Gnuplot {
@@ -19,18 +20,27 @@ impl Drop for Gnuplot {
 }
 
 impl Gnuplot {
-    pub fn open() -> RisResult<Self> {
+    pub fn new() -> RisResult<Self> {
+        eprintln!("spawn new gnuplot instance...");
         let process = Command::new("gnuplot")
             .stdin(Stdio::piped())
             .spawn()
             .ris_expect("gnuplot to spawn")?;
+        eprintln!("gnuplot is running!");
 
-        Ok(Self { process })
+        let debug = false;
+        Ok(Self { process, debug })
+    }
+
+    pub fn debug(&mut self) -> &mut bool {
+        &mut self.debug
     }
 
     pub fn run(&mut self, command: impl AsRef<str>) -> RisResult<()> {
         let command = command.as_ref();
-        //eprintln!("gnuplot> {}", command);
+        if self.debug {
+            eprintln!("gnuplot> {}", command);
+        }
         let stdin = self.process.stdin.as_mut().ris_expect("stdin to exist")?;
         writeln!(stdin, "{}", command)?;
         Ok(())

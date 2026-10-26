@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.4.4 (dcaf3e7d9e, 2026-05-05), www.inkscape.org
+%% Creator: Inkscape 1.4.4 (dcaf3e7, 2026-05-05), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'assignment_2_2_integral_3_svg-tex.pdf' (pdf, eps, ps)
 %%
@@ -100,8 +100,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=23]{assignment_2_2_integral_3_svg-tex.pdf}}%
     \put(0.79331667,0.63131667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Absolute Error\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=24]{assignment_2_2_integral_3_svg-tex.pdf}}%
-    \put(0.04266667,0.40398333){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}|I3- FN|\end{tabular}}}}}%
-    \put(0.56198333,0.01933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}N\end{tabular}}}}%
-    \put(0.56198333,0.73131667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Integral 3\end{tabular}}}}%
+    \put(0.04266667,0.40398333){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$|I_3 - F_N|$\end{tabular}}}}}%
+    \put(0.56198333,0.01933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$N$\end{tabular}}}}%
+    \put(0.56198333,0.73131667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\int_0^1 sin(x)cos(x)\,dx \approx 0.354$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

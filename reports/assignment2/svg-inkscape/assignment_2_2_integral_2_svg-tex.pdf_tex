@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.4.4 (dcaf3e7d9e, 2026-05-05), www.inkscape.org
+%% Creator: Inkscape 1.4.4 (dcaf3e7, 2026-05-05), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'assignment_2_2_integral_2_svg-tex.pdf' (pdf, eps, ps)
 %%
@@ -90,8 +90,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=18]{assignment_2_2_integral_2_svg-tex.pdf}}%
     \put(0.79331667,0.63131667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Absolute Error\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=19]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.04266667,0.40398333){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}|I2- FN|\end{tabular}}}}}%
-    \put(0.54331667,0.01933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}N\end{tabular}}}}%
-    \put(0.54331667,0.73131667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Integral 2\end{tabular}}}}%
+    \put(0.04266667,0.40398333){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$|I_2 - F_N|$\end{tabular}}}}}%
+    \put(0.54331667,0.01933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$N$\end{tabular}}}}%
+    \put(0.54331667,0.73131667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\int_1^3 4x^3+6x^2-3x+2\,dx = 124$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
