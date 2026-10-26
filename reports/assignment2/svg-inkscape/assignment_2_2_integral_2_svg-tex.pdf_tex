@@ -56,40 +56,44 @@
     \put(0,0){\includegraphics[width=\unitlength,page=1]{assignment_2_2_integral_2_svg-tex.pdf}}%
     \put(0.124,0.11933333){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}0\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.124,0.22973333){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}5\end{tabular}}}}%
+    \put(0.124,0.19818333){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.124,0.34013333){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}10\end{tabular}}}}%
+    \put(0.124,0.27705){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}20\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.124,0.45051667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}15\end{tabular}}}}%
+    \put(0.124,0.3559){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}30\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.124,0.56091667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}20\end{tabular}}}}%
+    \put(0.124,0.43475){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}40\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.124,0.67131667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}25\end{tabular}}}}%
+    \put(0.124,0.5136){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}50\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.14266667,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0\end{tabular}}}}%
+    \put(0.124,0.59246667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}60\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.2228,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}100\end{tabular}}}}%
+    \put(0.124,0.67131667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}70\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.30293333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}200\end{tabular}}}}%
+    \put(0.14266667,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.38306667,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}300\end{tabular}}}}%
+    \put(0.2228,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}100\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.4632,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}400\end{tabular}}}}%
+    \put(0.30293333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}200\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.54333333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}500\end{tabular}}}}%
+    \put(0.38306667,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}300\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.62345,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}600\end{tabular}}}}%
+    \put(0.4632,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}400\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.70358333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}700\end{tabular}}}}%
+    \put(0.54333333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}500\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=15]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.78371667,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}800\end{tabular}}}}%
+    \put(0.62345,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}600\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=16]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.86385,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}900\end{tabular}}}}%
+    \put(0.70358333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}700\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=17]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.94398333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1000\end{tabular}}}}%
+    \put(0.78371667,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}800\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=18]{assignment_2_2_integral_2_svg-tex.pdf}}%
-    \put(0.79331667,0.63131667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Absolute Error\end{tabular}}}}%
+    \put(0.86385,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}900\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=19]{assignment_2_2_integral_2_svg-tex.pdf}}%
+    \put(0.94398333,0.07933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1000\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{assignment_2_2_integral_2_svg-tex.pdf}}%
+    \put(0.79331667,0.63131667){\makebox(0,0)[rt]{\lineheight{1.25}\smash{\begin{tabular}[t]{r}Absolute Error\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{assignment_2_2_integral_2_svg-tex.pdf}}%
     \put(0.04266667,0.40398333){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$|I_2 - F_N|$\end{tabular}}}}}%
     \put(0.54331667,0.01933333){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$N$\end{tabular}}}}%
     \put(0.54331667,0.73131667){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$\int_1^3 4x^3+6x^2-3x+2\,dx = 124$\end{tabular}}}}%

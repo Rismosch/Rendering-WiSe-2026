@@ -285,6 +285,74 @@ fn run_2_3(rng: &mut Rng) -> RisResult<()> {
         gnuplot.run("e")?;
     }
 
+    // g(x) - inversion
+    {
+        let mut samples = [0.0; SAMPLE_COUNT];
+        for x in samples.iter_mut() {
+            *x = rng.next_u128() as f64 / (u128::MAX as f64);
+        }
+
+        let mapped = samples
+            .iter()
+            .copied()
+            .map(|x| {
+                use statrs::function::erf::erf;
+                use statrs::function::erf::erf_inv;
+
+                let o = 0.1;
+                let u = 0.5;
+                f64::sqrt(2.0) * o * erf_inv(2.0 * x + erf(- u / (f64::sqrt(2.0) * o))) + u
+            })
+            .collect::<Vec<_>>();
+
+        let min = 0.0;
+        let max = 1.0;
+        let steps = 20;
+        let step = 1.0 / steps as f64;
+        let mut buckets = Vec::new();
+        for i in 0..steps {
+            let lower = (max - min) * step * i as f64;
+            let upper = lower + step;
+
+            let mut count = 0;
+            for &x in mapped.iter() {
+                if lower <= x && x < upper {
+                    count += 1;
+                }
+            }
+
+            let bucket = steps as f64 * count as f64 / SAMPLE_COUNT as f64;
+            buckets.push((lower, bucket));
+        }
+
+        gnuplot.run("set terminal svg enhanced font 'DejaVu Sans,16'")?;
+        gnuplot.run("set output 'assignment_2_3_g_inverse.svg'")?;
+
+        gnuplot.run(format!("set title 'Inverse Transform Sampling for $h(x)$'"))?;
+        gnuplot.run("set xlabel '$x$'")?;
+        gnuplot.run("set ylabel 'Frequency Density'")?;
+
+        gnuplot.run("set key noopaque")?;
+        gnuplot.run("set xrange [0:1]")?;
+        gnuplot.run("set yrange [0:6]")?;
+        gnuplot.run("g(x) = 1 / (0.1 * sqrt(2 * pi)) * exp(- ((x - 0.5) * (x - 0.5)) / (2 * 0.1 * 0.1))")?;
+
+        gnuplot.run("set style fill solid 0.65 border rgb '#23b31d'")?;
+
+        gnuplot.run(format!(
+            "plot '-' using ($1+{}/2):2 with boxes lc rgb '#23b31d' title 'Generated Data', \\",
+            step,
+        ))?;
+        gnuplot.run("g(x) lc rgb '#2c2be6' title 'Expected PDF'")?;
+
+        for (x, bucket) in buckets {
+            gnuplot.run(format!("{} {}", x, bucket))?;
+        }
+
+        gnuplot.run("e")?;
+        gnuplot.run("set yrange [*:*]")?;
+    }
+
     // g(x) - rejection
     {
         let mut samples = [(0.0, 0.0); SAMPLE_COUNT];

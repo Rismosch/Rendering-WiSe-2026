@@ -1,5 +1,15 @@
 %===============================================================================
-\section{f(x)}
+\subsubsection*{a)}
+%===============================================================================
+
+Sampling random numbers from a uniform distribution is simple, compared to sampling from a non-uniform distribution $p(x)$. Inversion and Rejection Sampling allow us to map a uniform range to a non-uniform one.
+
+Inversion Sampling is an analytical strategy. It computes the cumulative density function $q(x)$ from $p(x)$. Then, its inverse $q^{-1}(x)$ is found. When we now produce a random value $x$ between 0 and 1, $q^{-1}(x)$ produces a random sample of $p(x)$. See Figures \ref{fig:2-3-inverse-f}, \ref{fig:2-3-inverse-g}, and \ref{fig:2-3-inverse-h}.
+
+Rejection Sampling is a computational strategy. It samples a range much larger than $p(x)$, and rejects every sample that lies outside it. It is comparably easy, as it doesn't require analysis like Inversion Sampling, but it may waste computation cycles, as potentially many samples will be rejected. See Figures \ref{fig:2-3-rejection-f}, \ref{fig:2-3-rejection-g}, and \ref{fig:2-3-rejection-h}.
+
+%===============================================================================
+\subsubsection*{b) f(x)}
 %===============================================================================
 
 \begin{align}
@@ -17,13 +27,20 @@ q^{-1}(x) &= \frac{x+2}{5}
 
 \begin{figure}[htbp]
     \centering
-    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_f.svg}
-    \caption{TODO}
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_f_inverse.svg}
+    \caption{Inverse Probability Transform Sampling for $f(x)$}
+    \label{fig:2-3-inverse-f}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_f_reject.svg}
+    \caption{Rejection Sampling for $f(x)$}
     \label{fig:2-3-rejection-f}
 \end{figure}
 
 %===============================================================================
-\section{g(x)}
+\subsubsection*{b) g(x)}
 %===============================================================================
 
 \begin{align}
@@ -46,13 +63,20 @@ q^{-1}(x) &= \sqrt{2} \sigma \operatorname{erf}^{-1} \left( 2 x + \operatorname{
 
 \begin{figure}[htbp]
     \centering
-    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_g.svg}
-    \caption{TODO}
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_g_inverse.svg}
+    \caption{Inverse Probability Transform Sampling for $g(x)$}
+    \label{fig:2-3-inverse-g}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_g_reject.svg}
+    \caption{Rejection Sampling for $g(x)$}
     \label{fig:2-3-rejection-g}
 \end{figure}
 
 %===============================================================================
-\section{h(x)}
+\subsubsection*{b) h(x)}
 %===============================================================================
 
 \begin{align}
@@ -69,12 +93,19 @@ x &= -\cos\left(\frac{\pi}{2} q^{-1}(x)\right) + 1\\
 -x + 1 &= \cos\left(\frac{\pi}{2} q^{-1}(x)\right) \\
 \cos^{-1}(-x + 1) &= \frac{\pi}{2} q^{-1}(x) \\
 \frac{2}{\pi} \cos^{-1}(-x + 1) &= q^{-1}(x) \\
-q^{-1}(x) &= \frac{2}{\pi} \cos^{-1}(-x + 1) \\
+q^{-1}(x) &= \frac{2}{\pi} \cos^{-1}(-x + 1)
 \end{align}
 
 \begin{figure}[htbp]
     \centering
-    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_h.svg}
-    \caption{TODO}
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_h_inverse.svg}
+    \caption{Inverse Probability Transform Sampling for $h(x)$}
+    \label{fig:2-3-inverse-h}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_h_reject.svg}
+    \caption{Rejection Sampling for $h(x)$}
     \label{fig:2-3-rejection-h}
 \end{figure}

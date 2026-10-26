@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [workspace]
-members = [ 
+members = [
     "crates/ris_error",
     "crates/ris_rng",
 ]
@@ -12,3 +12,4 @@ members = [
 [dependencies]
 ris_error = { path = "crates/ris_error" }
 ris_rng = { path = "crates/ris_rng" }
+statrs = "0.19.1"

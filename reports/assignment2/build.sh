@@ -5,4 +5,6 @@ set -euo pipefail
 # svg can take a while, but automatically deleting them can make debuggin easier
 # rm -rf svg-inkscape
 
+# run twice to resolve references
+lualatex -shell-escape assignment02.tex
 lualatex -shell-escape assignment02.tex
