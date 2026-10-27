@@ -1,0 +1,67 @@
+The analytical solutions for the three integrals are:
+
+\begin{align}
+I_1
+&=\int_0^\pi \sin(x)\,dx \\
+&= \left[-\cos(x) + c\right]_0^\pi \\
+&= (-\cos(\pi) + c) - (-\cos(0) + c) \\
+&= -\cos(\pi) + c + \cos(0) - c \\
+&= -\cos(\pi) + \cos(0) \\
+&= -(-1) + (1) \\
+&= 1 + 1 \\
+&= 2 \\
+\\
+I_2
+&=\int_1^3 4x^3+6x^2-3x+2\,dx \\
+&= \left[x^4+2x^3-\frac{3}{2}x^2 + 2x + c\right]_1^3 \\
+&= (3^4+2\cdot 3^3-\frac{3}{2}\cdot 3^2 + 2\cdot 3 + c) - (1^4+2\cdot 1^3-\frac{3}{2}\cdot 1^2 + 2\cdot 1 + c) \\
+&= (81+54-\frac{27}{2} + 6 + c) - (1+2-\frac{3}{2} + 2 + c) \\
+&= (128-\frac{1}{2} + c) - (4-\frac{1}{2} + c) \\
+&= 128-\frac{1}{2} + c - 4+\frac{1}{2} - c \\
+&= 128 - 4 \\
+&= 124 \\
+\\
+I_3
+&=\int_0^1 sin(x)cos(x)\,dx \\
+&= \left[-\frac{1}{2} \cos^2(x) + c\right]_0^1 \\
+&= (-\frac{1}{2} \cos^2(1) + c) - (-\frac{1}{2} \cos^2(0) + c) \\
+&= -\frac{1}{2} \cos^2(1) + c +\frac{1}{2} \cos^2(0) - c \\
+&= -\frac{1}{2} \cos^2(1) + \frac{1}{2} \cos^2(0) \\
+&= \frac{1}{2} \cos^2(0) - \frac{1}{2} \cos^2(1) \\
+&= \frac{1}{2} (\cos(0))^2 - \frac{1}{2} \cos^2(1) \\
+&= \frac{1}{2} \cdot 1^2 - \frac{1}{2} \cos^2(1) \\
+&= \frac{1}{2} - \frac{1}{2} \cos^2(1) \\
+&\approx 0.354
+\end{align}
+
+%\begin{figure}[htbp]
+%    \centering
+%    \includesvg[width=0.3\textwidth]{sections/assignment_2_2_integral_1.svg}
+%    \hfill
+%    \includesvg[width=0.3\textwidth]{sections/assignment_2_2_integral_2.svg}
+%    \hfill
+%    \includesvg[width=0.3\textwidth]{sections/assignment_2_2_integral_3.svg}
+%    \caption{Three SVG images displayed horizontally.}
+%    \label{fig:three-svg}
+%\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_2_integral_1.svg}
+    \caption{Plot of the error of $N$ Monte Carlo Samples against $I_1$.}
+    \label{fig:2-2-integral-1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_2_integral_2.svg}
+    \caption{Plot of the error of $N$ Monte Carlo Samples against $I_2$.}
+    \label{fig:2-2-integral-2}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_2_integral_3.svg}
+    \caption{Plot of the error of $N$ Monte Carlo Samples against $I_3$.}
+    \label{fig:2-2-integral-3}
+\end{figure}

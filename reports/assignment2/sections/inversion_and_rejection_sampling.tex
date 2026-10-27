@@ -1,0 +1,111 @@
+%===============================================================================
+\subsubsection*{a)}
+%===============================================================================
+
+Sampling random numbers from a uniform distribution is simple, compared to sampling from a non-uniform distribution $p(x)$. Inversion and Rejection Sampling allow us to map a uniform range to a non-uniform one.
+
+Inversion Sampling is an analytical strategy. It computes the cumulative density function $q(x)$ from $p(x)$. Then, its inverse $q^{-1}(x)$ is found. When we now produce a random value $x$ between 0 and 1, $q^{-1}(x)$ produces a random sample of $p(x)$. See Figures \ref{fig:2-3-inverse-f}, \ref{fig:2-3-inverse-g}, and \ref{fig:2-3-inverse-h}.
+
+Rejection Sampling is a computational strategy. It samples a range much larger than $p(x)$, and rejects every sample that lies outside it. It is comparably easy, as it doesn't require analysis like Inversion Sampling, but it may waste computation cycles, as potentially many samples will be rejected. See Figures \ref{fig:2-3-rejection-f}, \ref{fig:2-3-rejection-g}, and \ref{fig:2-3-rejection-h}.
+
+%===============================================================================
+\subsubsection*{b) f(x)}
+%===============================================================================
+
+\begin{align}
+q(x)
+&= \int_{-\infty}^x f(x)\,dx \\
+&= \int_{0.4}^x 5\,dx \\
+&= \left[5x\right]_{0.4}^{x} \\
+&= (5x + c) - (5 \cdot 0.4 + c) \\
+&= 5x + c - 5 \cdot 0.4 - c \\
+&= 5x - 2 \\
+\\
+x &= 5 q^{-1}(x) -2 \\
+q^{-1}(x) &= \frac{x+2}{5}
+\end{align}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_f_inverse.svg}
+    \caption{Inverse Probability Transform Sampling for $f(x)$}
+    \label{fig:2-3-inverse-f}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_f_reject.svg}
+    \caption{Rejection Sampling for $f(x)$}
+    \label{fig:2-3-rejection-f}
+\end{figure}
+
+%===============================================================================
+\subsubsection*{b) g(x)}
+%===============================================================================
+
+\begin{align}
+q(x)
+&= \int_{-\infty}^x g(x)\,dx \\
+&= \int_{0}^x \frac{1}{\sigma \sqrt{2 \pi}} \exp\left(- \frac{(x-\mu)^2}{2\sigma^2}\right)\,dx \\
+&= \left[\frac{1}{2} \operatorname{erf} \left(\frac{x-\mu}{\sqrt{2} \sigma}\right) + c\right]_0^x \\
+&= \left(\frac{1}{2} \operatorname{erf} \left(\frac{x-\mu}{\sqrt{2} \sigma}\right) + c\right) - \left(\frac{1}{2} \operatorname{erf} \left(\frac{0-\mu}{\sqrt{2} \sigma}\right) + c\right)\\
+&= \frac{1}{2} \operatorname{erf} \left(\frac{x-\mu}{\sqrt{2} \sigma}\right) + c - \frac{1}{2} \operatorname{erf} \left(\frac{0-\mu}{\sqrt{2} \sigma}\right) - c\\
+&= \frac{1}{2} \operatorname{erf} \left(\frac{x-\mu}{\sqrt{2} \sigma}\right) - \frac{1}{2} \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) \\
+\\
+x &= \frac{1}{2} \operatorname{erf} \left(\frac{q^{-1}(x)-\mu}{\sqrt{2} \sigma}\right) - \frac{1}{2} \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) \\
+x + \frac{1}{2} \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) &= \frac{1}{2} \operatorname{erf} \left(\frac{q^{-1}(x)-\mu}{\sqrt{2} \sigma}\right) \\
+2 x + \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) &= \operatorname{erf} \left(\frac{q^{-1}(x)-\mu}{\sqrt{2} \sigma}\right) \\
+\operatorname{erf}^{-1} \left( 2 x + \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) \right) &= \frac{q^{-1}(x)-\mu}{\sqrt{2} \sigma} \\
+\sqrt{2} \sigma \operatorname{erf}^{-1} \left( 2 x + \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) \right) &= q^{-1}(x)-\mu \\
+\sqrt{2} \sigma \operatorname{erf}^{-1} \left( 2 x + \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) \right)  + \mu &= q^{-1}(x) \\
+q^{-1}(x) &= \sqrt{2} \sigma \operatorname{erf}^{-1} \left( 2 x + \operatorname{erf} \left(- \frac{\mu}{\sqrt{2} \sigma}\right) \right)  + \mu
+\end{align}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_g_inverse.svg}
+    \caption{Inverse Probability Transform Sampling for $g(x)$}
+    \label{fig:2-3-inverse-g}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_g_reject.svg}
+    \caption{Rejection Sampling for $g(x)$}
+    \label{fig:2-3-rejection-g}
+\end{figure}
+
+%===============================================================================
+\subsubsection*{b) h(x)}
+%===============================================================================
+
+\begin{align}
+q(x)
+&= \int_{-\infty}^x h(x)\,dx \\
+&= \int_{0}^x \frac{\pi}{2} \sin\left(\frac{\pi}{2} x\right)\,dx \\
+&= \left[-\cos\left(\frac{\pi}{2} x\right) + c\right]_0^x \\
+&= \left(-\cos\left(\frac{\pi}{2} x\right) + c\right) - \left(-\cos\left(\frac{\pi}{2}\cdot 0\right) + c\right)\\
+&= \left(-\cos\left(\frac{\pi}{2} x\right) + c\right) - \left(-1 + c\right)\\
+&= -\cos\left(\frac{\pi}{2} x\right) + c + 1 - c\\
+&= -\cos\left(\frac{\pi}{2} x\right) + 1\\
+\\
+x &= -\cos\left(\frac{\pi}{2} q^{-1}(x)\right) + 1\\
+-x + 1 &= \cos\left(\frac{\pi}{2} q^{-1}(x)\right) \\
+\cos^{-1}(-x + 1) &= \frac{\pi}{2} q^{-1}(x) \\
+\frac{2}{\pi} \cos^{-1}(-x + 1) &= q^{-1}(x) \\
+q^{-1}(x) &= \frac{2}{\pi} \cos^{-1}(-x + 1)
+\end{align}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_h_inverse.svg}
+    \caption{Inverse Probability Transform Sampling for $h(x)$}
+    \label{fig:2-3-inverse-h}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.6\textwidth]{sections/assignment_2_3_h_reject.svg}
+    \caption{Rejection Sampling for $h(x)$}
+    \label{fig:2-3-rejection-h}
+\end{figure}
