@@ -11,7 +11,7 @@ compile_commands.json
 *.exr
 *.png
 
-# exceptions
+# 3rd party exceptions
 !ext/tbb/build/
 
 # latex files
@@ -25,4 +25,8 @@ compile_commands.json
 *.out
 *.pdf
 
+# latex inkscape
+*svg-inkscape
+
+# latex template exceptions
 !reports/assignment2/common/unilogo.pdf

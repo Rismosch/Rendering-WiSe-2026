@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="windows-1252"  standalone="no"?>
+<svg 
+ width="600" height="480"
+ viewBox="0 0 600 480"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+<title>Gnuplot</title>
+<desc>Produced by GNUPLOT 6.0 patchlevel 5 </desc>
+
+<g id="gnuplot_canvas">
+
+<rect x="0" y="0" width="600" height="480" fill="none"/>
+<defs>
+
+	<circle id='gpDot' r='0.5' stroke-width='0.5' stroke='currentColor'/>
+	<path id='gpPt0' stroke-width='0.167' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
+	<path id='gpPt1' stroke-width='0.167' stroke='currentColor' d='M-1,-1 L1,1 M1,-1 L-1,1'/>
+	<path id='gpPt2' stroke-width='0.167' stroke='currentColor' d='M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1'/>
+	<rect id='gpPt3' stroke-width='0.167' stroke='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<rect id='gpPt4' stroke-width='0.167' stroke='currentColor' fill='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<circle id='gpPt5' stroke-width='0.167' stroke='currentColor' cx='0' cy='0' r='1'/>
+	<use xlink:href='#gpPt5' id='gpPt6' fill='currentColor' stroke='none'/>
+	<path id='gpPt7' stroke-width='0.167' stroke='currentColor' d='M0,-1.33 L-1.33,0.67 L1.33,0.67 z'/>
+	<use xlink:href='#gpPt7' id='gpPt8' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt7' id='gpPt9' stroke='currentColor' transform='rotate(180)'/>
+	<use xlink:href='#gpPt9' id='gpPt10' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt3' id='gpPt11' stroke='currentColor' transform='rotate(45)'/>
+	<use xlink:href='#gpPt11' id='gpPt12' fill='currentColor' stroke='none'/>
+	<path id='gpPt13' stroke-width='0.167' stroke='currentColor' d='M0,1.330 L1.265,0.411 L0.782,-1.067 L-0.782,-1.076 L-1.265,0.411 z'/>
+	<use xlink:href='#gpPt13' id='gpPt14' fill='currentColor' stroke='none'/>
+	<filter id='textbox' filterUnits='objectBoundingBox' x='0' y='0' height='1' width='1'>
+	  <feFlood flood-color='white' flood-opacity='1' result='bgnd'/>
+	  <feComposite in='SourceGraphic' in2='bgnd' operator='atop'/>
+	</filter>
+	<filter id='greybox' filterUnits='objectBoundingBox' x='0' y='0' height='1' width='1'>
+	  <feFlood flood-color='lightgrey' flood-opacity='1' result='grey'/>
+	  <feComposite in='SourceGraphic' in2='grey' operator='atop'/>
+	</filter>
+</defs>
+<g fill="none" color="white" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,403.20 L97.60,403.20 M566.39,403.20 L554.39,403.20  '/>	<g transform="translate(74.40,408.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" > 0</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,336.96 L97.60,336.96 M566.39,336.96 L554.39,336.96  '/>	<g transform="translate(74.40,342.16)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" > 2</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,270.72 L97.60,270.72 M566.39,270.72 L554.39,270.72  '/>	<g transform="translate(74.40,275.92)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" > 4</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,204.49 L97.60,204.49 M566.39,204.49 L554.39,204.49  '/>	<g transform="translate(74.40,209.69)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" > 6</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,138.25 L97.60,138.25 M566.39,138.25 L554.39,138.25  '/>	<g transform="translate(74.40,143.45)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" > 8</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,72.01 L97.60,72.01 M566.39,72.01 L554.39,72.01  '/>	<g transform="translate(74.40,77.21)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" > 10</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,403.20 L85.60,391.20 M85.60,72.01 L85.60,84.01  '/>	<g transform="translate(85.60,432.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" > 0</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M181.76,403.20 L181.76,391.20 M181.76,72.01 L181.76,84.01  '/>	<g transform="translate(181.76,432.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" > 0.2</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M277.92,403.20 L277.92,391.20 M277.92,72.01 L277.92,84.01  '/>	<g transform="translate(277.92,432.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" > 0.4</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M374.07,403.20 L374.07,391.20 M374.07,72.01 L374.07,84.01  '/>	<g transform="translate(374.07,432.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" > 0.6</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M470.23,403.20 L470.23,391.20 M470.23,72.01 L470.23,84.01  '/>	<g transform="translate(470.23,432.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" > 0.8</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M566.39,403.20 L566.39,391.20 M566.39,72.01 L566.39,84.01  '/>	<g transform="translate(566.39,432.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" > 1</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,72.01 L85.60,403.20 L566.39,403.20 L566.39,72.01 L85.60,72.01 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+	<g id="gnuplot_plot_1" ><title>Generated Data</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(475.99,101.21)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" >Generated Data</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '487.19,102.01 543.99,102.01 543.99,90.01 487.19,90.01 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M487.19,102.01 L543.99,102.01 L543.99,90.01 L487.19,90.01 L487.19,102.01 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '277.92,403.20 287.54,403.20 287.54,217.72 277.92,217.72 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M277.92,403.20 L277.92,217.73 L287.53,217.73 L287.53,403.20 L277.92,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '287.53,403.20 297.16,403.20 297.16,235.94 287.53,235.94 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M287.53,403.20 L287.53,235.95 L297.15,235.95 L297.15,403.20 L287.53,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '297.15,403.20 306.77,403.20 306.77,245.87 297.15,245.87 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M297.15,403.20 L297.15,245.88 L306.76,245.88 L306.76,403.20 L297.15,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '306.76,403.20 316.39,403.20 316.39,227.66 306.76,227.66 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M306.76,403.20 L306.76,227.67 L316.38,227.67 L316.38,403.20 L306.76,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '316.38,403.20 326.01,403.20 326.01,230.97 316.38,230.97 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M316.38,403.20 L316.38,230.98 L326.00,230.98 L326.00,403.20 L316.38,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '326.00,403.20 335.62,403.20 335.62,242.56 326.00,242.56 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M326.00,403.20 L326.00,242.57 L335.61,242.57 L335.61,403.20 L326.00,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '335.61,403.20 345.24,403.20 345.24,250.84 335.61,250.84 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M335.61,403.20 L335.61,250.85 L345.23,250.85 L345.23,403.20 L335.61,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '345.23,403.20 354.85,403.20 354.85,250.84 345.23,250.84 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M345.23,403.20 L345.23,250.85 L354.84,250.85 L354.84,403.20 L345.23,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '354.84,403.20 364.47,403.20 364.47,214.41 354.84,214.41 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M354.84,403.20 L354.84,214.42 L364.46,214.42 L364.46,403.20 L354.84,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(112, 205, 108)' points = '364.46,403.20 374.08,403.20 374.08,259.12 364.46,259.12 '/>
+	</g>
+	<path stroke='rgb( 35, 179,  29)'  d='M364.46,403.20 L364.46,259.13 L374.07,259.13 L374.07,403.20 L364.46,403.20 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+	</g>
+	<g id="gnuplot_plot_2" ><title>Expected PDF</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(475.99,125.21)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="DejaVu Sans" >Expected PDF</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb( 44,  43, 230)'  d='M487.19,120.01 L543.99,120.01 M85.60,403.20 L90.46,403.20 L95.31,403.20 L100.17,403.20 L105.03,403.20 L109.88,403.20
+		L114.74,403.20 L119.60,403.20 L124.45,403.20 L129.31,403.20 L134.16,403.20 L139.02,403.20 L143.88,403.20 L148.73,403.20
+		L153.59,403.20 L158.45,403.20 L163.30,403.20 L168.16,403.20 L173.02,403.20 L177.87,403.20 L182.73,403.20 L187.59,403.20
+		L192.44,403.20 L197.30,403.20 L202.16,403.20 L207.01,403.20 L211.87,403.20 L216.72,403.20 L221.58,403.20 L226.44,403.20
+		L231.29,403.20 L236.15,403.20 L241.01,403.20 L245.86,403.20 L250.72,403.20 L255.58,403.20 L260.43,403.20 L265.29,403.20
+		L270.15,403.20 L275.00,403.20 L279.86,237.60 L284.72,237.60 L289.57,237.60 L294.43,237.60 L299.28,237.60 L304.14,237.60
+		L309.00,237.60 L313.85,237.60 L318.71,237.60 L323.57,237.60 L328.42,237.60 L333.28,237.60 L338.14,237.60 L342.99,237.60
+		L347.85,237.60 L352.71,237.60 L357.56,237.60 L362.42,237.60 L367.27,237.60 L372.13,237.60 L376.99,403.20 L381.84,403.20
+		L386.70,403.20 L391.56,403.20 L396.41,403.20 L401.27,403.20 L406.13,403.20 L410.98,403.20 L415.84,403.20 L420.70,403.20
+		L425.55,403.20 L430.41,403.20 L435.27,403.20 L440.12,403.20 L444.98,403.20 L449.83,403.20 L454.69,403.20 L459.55,403.20
+		L464.40,403.20 L469.26,403.20 L474.12,403.20 L478.97,403.20 L483.83,403.20 L488.69,403.20 L493.54,403.20 L498.40,403.20
+		L503.26,403.20 L508.11,403.20 L512.97,403.20 L517.83,403.20 L522.68,403.20 L527.54,403.20 L532.39,403.20 L537.25,403.20
+		L542.11,403.20 L546.96,403.20 L551.82,403.20 L556.68,403.20 L561.53,403.20 L566.39,403.20  '/></g>
+	</g>
+<g fill="none" color="white" stroke="rgb( 44,  43, 230)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="black" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M85.60,72.01 L85.60,403.20 L566.39,403.20 L566.39,72.01 L85.60,72.01 Z  '/>	<g transform="translate(25.60,237.61) rotate(270.00)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" >Frequency Density</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(325.99,468.40)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" >$x$</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(325.99,41.21)" stroke="none" fill="black" font-family="DejaVu Sans" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="DejaVu Sans" >Inverse Transform Sampling for $f(x)$</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+</g>
+</svg>
+
