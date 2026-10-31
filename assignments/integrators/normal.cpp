@@ -11,32 +11,35 @@
 
 NORI_NAMESPACE_BEGIN
 
-/**
- * \brief NormalIntegrator
- */
 class NormalIntegrator : public Integrator {
 public:
     NormalIntegrator(const PropertyList &props) {
         /* No parameters this time */
     }
 
-    Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
-        Intersection intersection;
-        if (!scene->rayIntersect(cameraRay, intersection)) {
-            return {0.0f};
-        }
+    Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &ray) const {
+        /* Find the surface that is visible in the requested direction */
+        Intersection its;
+        if (!scene->rayIntersect(ray, its))
+            return Color3f(0.0f);
 
-        Vector3f world_normal = intersection.toWorld({0,0,1});
-        Vector3f scaled = world_normal / 2.0 + Vector3f{0.5f};
-
-        return {scaled.x(), scaled.y(), scaled.z()};
+        /* Return the component-wise absolute
+           value of the shading normal as a color */
+        Normal3f n = its.toWorld(Vector3f(0,0,1));
+        /* Convert Vector range into Color3f range [-1,1] -> [0,1] */
+        float x = (n.x()+1.0f)/2.0f;
+        float y = (n.y()+1.0f)/2.0f;
+        float z = (n.z()+1.0f)/2.0f;
+        Color3f L = Color3f(x,y,z);
+        return L;
     }
 
-    std::string toString() const override {
-        std::ostringstream oss;
-        oss << "NormalIntegrator[" << endl
-            << "]";
-        return oss.str();
+
+    std::string toString() const {
+		std::ostringstream oss;
+			oss << "NormalIntegrator[" << endl
+				<< "]";
+		return oss.str();
     }
 };
 
