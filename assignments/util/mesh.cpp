@@ -4,6 +4,7 @@
     Copyright (c) 2015 by Wenzel Jakob
 */
 
+#include "nori/dpdf.h"
 #include <nori/mesh.h>
 #include <nori/bbox.h>
 #include <nori/bsdf.h>
@@ -17,10 +18,13 @@ Mesh::Mesh() = default;
 Mesh::~Mesh() = default;
 
 void Mesh::activate() {
-
-    /* TODO: Exercise 3.1 a): Create a discrete distribution for sampling triangles
-     * with respect to their surface area (use the existing \c m_distr)
-     */
+    m_distr.clear();
+    uint32_t triangleCount{getTriangleCount()};
+    for (uint32_t i = 0; i < triangleCount; ++i) {
+        float area = surfaceArea(i);
+        m_distr.append(area);
+    }
+    m_distr.normalize();
 
     if (!m_bsdf) {
         /* If no material was assigned, instantiate a diffuse BRDF */
@@ -35,18 +39,30 @@ void Mesh::activate() {
 
 /// uniformly sample a position on the mesh
 void Mesh::samplePosition(const Point2f &sample, Point3f &p, Normal3f &n) const {
-    /* TODO: Exercise 3.1 a): Uniformly sample a position on the mesh
-     * Use \ref Warp::squareToUniformTriangle to sample a point on the triangle
-     * Then, convert to barycentric coordinates and choose a point
-     * on the actual triangle using the barycentric coordinates.
-     */
-    throw NoriException("Mesh::samplePosition() is not yet implemented!");
+    // Copy the sample because sampleReuse modifies it
+    auto reuse_sample = sample;
+    
+    // find triangle
+    auto index = m_distr.sampleReuse(reuse_sample.x());
+    auto i0 = m_F(0, index), i1 = m_F(1, index), i2 = m_F(2, index);
+    const Point3f p0 = m_V.col(i0), p1 = m_V.col(i1), p2 = m_V.col(i2);
+    
+    // sample triangle point
+    auto uv = Warp::squareToUniformTriangle(reuse_sample);
+    
+    // compute point
+    auto u = uv.x();
+    auto v = uv.y();
+    p = (1.0f - u) * p0 + (u - v) * p1 + v * p2;
+    
+    // compute normal
+    n = (p0 - p1).cross(p0 - p2);
+    n.normalize();
 }
 
 /// returns the total surface area of the mesh
 float Mesh::totalSurfaceArea() const {
-    //TODO: Exercise 3.1 a): Return the mesh's total surface area (do not recompute it each time)
-    throw NoriException("Mesh::surfaceArea() is not yet implemented!");
+    return m_distr.getSum();
 }
 
 /// returns the surface area of an individual triangle

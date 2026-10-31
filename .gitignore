@@ -4,7 +4,8 @@ build
 *.DS_Store
 *.zip
 
-# lsb integration
+# ide integrations
+.vscode/
 compile_commands.json
 
 # nori output

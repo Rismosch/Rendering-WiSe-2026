@@ -1,3 +1,7 @@
+#include "nori/color.h"
+#include "nori/common.h"
+#include "nori/object.h"
+#include <cmath>
 #include <nori/emitter.h>
 #include <nori/bitmap.h>
 #include <nori/frame.h>
@@ -10,29 +14,54 @@ NORI_NAMESPACE_BEGIN
 class AreaLight: public Emitter {
 public:
     AreaLight(const PropertyList &propList) {
-        //TODO: Exercise 3.1 b): load and initialize parameters from XML-file
-        throw NoriException("AreaLight::AreaLight() is not yet implemented!");
+        m_Radiance = propList.getColor("radiance");
     }
 
     void setParent(NoriObject* obj) override {
-        //TODO: Exercise 3.1 b): This will be called by \ref Mesh::activate().
-        throw NoriException("AreaLight::setParent() is not yet implemented!");
+        m_Parent = obj;
     }
 
     Color3f sampleDirect(EmitterQueryRecord &eRec, Point2f sample) const override {
-        //TODO: Exercise 3.1 b): Sample a direction depending on the query point \c eRec.p.
-        throw NoriException("AreaLight::sampleDirect() is not yet implemented!");
+        // cast to mesh
+        assert(m_Parent->getClassType() == m_Parent->EMesh);
+        auto mesh = static_cast<Mesh *>(m_Parent);
+        
+        // sample position
+        Point3f position;
+        Normal3f normal;
+        mesh->samplePosition(sample, position, normal);
+        
+        // fill eRec
+        eRec.ep = position;
+        eRec.measure = ESolidAngle;
+        
+        eRec.ws_wi = eRec.p - eRec.ep;
+        eRec.distance = eRec.ws_wi.norm();
+        eRec.ws_wi.normalize();
+        
+        Frame frame(normal);
+        eRec.wi = frame.toLocal(eRec.ws_wi);
+        
+        auto pdf = pdfDirect(eRec);
+        return pdf > 0.0f ? m_Radiance / pdf : Color3f{};
     }
 
     float pdfDirect(const EmitterQueryRecord &eRec) const override {
-        //TODO: Exercise 3.1 b): Return the PDF of the sample given in \c eRec.
-        /* Return the PDF in solid angle or the discrete probability according to the \c eRec.measure. */
-        throw NoriException("AreaLight::pdfDirect() is not yet implemented!");
+        // cast to mesh
+        assert(m_Parent->getClassType() == m_Parent->EMesh);
+        auto mesh = static_cast<Mesh *>(m_Parent);
+        
+        // compute pdf
+        auto A = mesh->totalSurfaceArea();
+        auto r = eRec.distance;
+        auto cos_theta = eRec.wi.z();
+        auto pdf = r * r / (A * cos_theta);
+        
+        return cos_theta > 0.0f ? pdf : 0.0;
     }
 
     Color3f eval(Vector3f wi) const override {
-        //TODO: Exercise 3.1 b): Return the emitted radiance of the given sample.
-        throw NoriException("AreaLight::eval() is not yet implemented!");
+        return m_Radiance;
     }
 
     Color3f samplePhoton(Ray3f &ray, Sampler* sampler) const override {
@@ -52,7 +81,8 @@ public:
 
 private:
     /* Parameters */
-
+    Color3f m_Radiance = {};
+    NoriObject* m_Parent = nullptr;
 };
 
 NORI_REGISTER_CLASS(AreaLight, "area");
