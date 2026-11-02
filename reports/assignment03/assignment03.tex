@@ -1,0 +1,41 @@
+\documentclass[a4paper]{common/rendering_solutions}
+\input{common/header}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{svg}
+\usepackage{xcolor}
+
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red!70!black},
+    breaklines=true,
+    breakatwhitespace=false,
+    showstringspaces=false,
+    frame=single,
+    tabsize=4,
+    captionpos=b
+}
+
+\Author{Giorgi Gogelashvili, Simon Sutoris, Erik Lahuerta}
+\Assignment{3}
+\Date{\today}
+
+\begin{document}
+
+\ExerciseHeader
+
+\Exercise{Area Lights}
+\input{sections/3_1_area_lights}
+
+\Exercise{Simple Path Tracer}
+\input{sections/3_2_simple_path_tracer}
+
+\end{document}
+
