@@ -4,7 +4,8 @@ build
 *.DS_Store
 *.zip
 
-# lsb integration
+# ide integrations
+.vscode/
 compile_commands.json
 
 # nori output
@@ -28,5 +29,10 @@ compile_commands.json
 # latex inkscape
 *svg-inkscape
 
-# latex template exceptions
-!reports/assignment2/common/unilogo.pdf
+# latex exceptions
+!reports/assignment*/common/unilogo.pdf
+!reports/assignment*/pictures/*.png
+!reports/assignment*/pictures/*.exr
+
+# libre office temp files
+*.odp#

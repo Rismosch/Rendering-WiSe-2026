@@ -49,11 +49,11 @@ public:
          *
          * We would usually also need to divide by the PDF here but for the point light we have a discrete probability of one.
          */
-        constexpr float r = 1.5f;
+        constexpr float r = 1.0f;
         const float d = eRec.distance;
 
         // physicall correct implementation
-        float attenuation = 1.0f / (d * d);
+        //float attenuation = 1.0f / (d * d);
 
         // formula by:
         //
@@ -63,7 +63,7 @@ public:
         // Association for Computing Machinery.
 
         // proposed
-        //float attenuation = 2.0f / (r * r) * (1 - d / std::sqrt(d * d + r * r));
+        float attenuation = 2.0f / (r * r) * (1 - d / std::sqrt(d * d + r * r));
 
         // ad-hoc
         //float attenuation = 1.0f / (d * d + (r * r) / 2.0f);
