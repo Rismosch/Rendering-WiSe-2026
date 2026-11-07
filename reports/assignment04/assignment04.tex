@@ -1,0 +1,47 @@
+\documentclass[a4paper]{common/rendering_solutions}
+\input{common/header}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{svg}
+\usepackage{xcolor}
+
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red!70!black},
+    breaklines=true,
+    breakatwhitespace=false,
+    showstringspaces=false,
+    frame=single,
+    tabsize=4,
+    captionpos=b
+}
+
+\Author{Giorgi Gogelashvili, Simon Sutoris, Erik Lahuerta}
+\Assignment{4}
+\Date{\today}
+
+\begin{document}
+
+\ExerciseHeader
+
+\Exercise{Theory: Monte Carlo Integration}
+\input{sections/4_1_theory_monte_carlo_integration}
+
+\Exercise{Quasi Monte Carlo Point Sets}
+\input{sections/4_2_quasi_monte_carlo_point_sets}
+
+\Exercise{Quasi Monte Carlo Rendering}
+\input{sections/4_3_quasi_monte_carlo_rendering}
+
+\Exercise{Bonus: Discrepancy}
+\input{sections/4_4_bonus_discrepancy}
+
+\end{document}
+
