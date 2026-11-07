@@ -1,0 +1,87 @@
+%===============================================================================
+\subsubsection{Monte Carlo Estimator}
+%===============================================================================
+
+As \textcite{veach1998} describes: assuming a domain $\Omega = [0, 1]^s$ and uniform random samples $X_i$, then the estimator
+
+\[
+F_N = \frac{1}{N} \sum_{I=1}^N \frac{f(X_i)}{p(X_i)}
+\]
+
+reduces to
+
+\[
+F_N = \frac{1}{N} \sum_{I=1}^N f(X_i).
+\]
+
+$F_N$ gives the correct result on average, provided that $f(x)/p(x)$ is finite when $f(x) \ne 0$:
+
+\begin{align}
+E[F_N] &= E\left[\frac{1}{N}\sum_{i=1}^N \frac{f(X_i)}{p(X_i)}\right] \\
+&= \frac{1}{N} \sum_{i=1}^N \int_\Omega \frac{f(x)}{p(x)}p(x)\,d\mu(x) \\
+&= \int_\Omega f(x)\,d\mu(x) \\
+&= I
+\end{align}
+
+%===============================================================================
+\subsubsection{Convergence Rates}
+%===============================================================================
+
+\begin{enumerate}
+\item
+With more samples, An estimator converges to the mean. In other words, the RMS error decreases with more samples. The better the convergence rate, the less samples are required to get an accurate representation of the mean. 
+
+\item
+Newton-Cotes Quadrature upper bound: $\mathcal O(N^{-r/2})$ \\
+Monte Carlo upper bound: $\mathcal O(N^{-1/2})$
+
+\item
+The convergence rate for Newton-Cotes rules is $\mathcal O(n^r)$ for some integer $r \ge 1$. With higher $r$, the better the convergence rate. However, with higher dimensionality, quite a large number of sample points are required: $N = n^s$, where $s$ is the dimension. With higher $r$, the convergence rate rises exponentially. Monte Carlo is not affected by this, since it has a convergence rate only dependant on the sample count. 
+
+\item
+First, Monte Carlo integration converges at a rate or $\mathcal O(n^{-1/2})$ in any dimension, regardless of the smoothness of the integrand. This is helpful in graphics, which involves highly dimensional integrals. \\
+Second, Monte Carlo uses only two basic operations: sampling and point evaluation. This makes it straight forward to use for effects like blur, depth of field, participating media, procedural surfaces, etc. \\
+Third, Monte Carol is general: It allows sampling domains that do not have a natrual correspondence with $[0, 1]^s$.   
+\end{enumerate}
+
+%===============================================================================
+\subsubsection{Computational Cost and Efficiency}
+%===============================================================================
+
+\begin{enumerate}
+\item
+The \textit{computational cost} $C_Y$ of the estimator $Y$ is 
+
+\[C_Y := t_Y \textbf{V}Y\]
+
+where $t_y$ is the time spent for calculating one realization $y$ of $Y$. The \textit{efficiency} of the estimator is the inverse of its \textit{computational cost}: $\frac{1}{C_Y} = \frac{1}{t_Y \textbf{V}Y}$.
+
+To increase the efficiency of an estimator, we must decrase its computational cost, by reducing $t_Y$, reduce the complexity of $\textbf{V}Y$, or both.
+\end{enumerate}
+
+%===============================================================================
+\subsubsection{Variance Reduction}
+%===============================================================================
+
+\begin{enumerate}
+\item
+Control Variates uses a separate function $g(x)$, which approaches $f(x)$. Their differences are then integrated. This reduces cost by reducing the variance. \\
+Importance Sampling weighs samples by their importance: $f/p$. In the optimal case, $f$ and $p$ have the same shape, such that $p\sim f$, in which case a single sample is enough. \\ 
+Using Stratification, the function to be sampled is split into stratums and sampled individually. This reduces variance and thus the computational cost.
+
+Use control variates when the difference is small. Use importance sampling when the quotient is almost constant. The importance function should never be zero when $f(x) \ne 0 \Rightarrow \sigma^2 \rightarrow \infty$. Stratified sampling can outperform importance sampling, if the function is not completely known. In most functions, the variance in each stratum is way smaller than the variance of the entire domain.
+
+Control variates and importance sampling are fundamentally different sampling strategies. Since stratification just splits functions into smaller domains, control variates and importance smapling can be used on each stratum.
+\end{enumerate}
+
+%===============================================================================
+\subsubsection{Bias}
+%===============================================================================
+
+An estimator is called unbiased, when the samples are uncorrelated, i.e. the expected value of the sampled function is identical to our quantity of interest. An estimator is called consistent, when increasing the samples $N$, the error goes to zero with probability one. For an estimator to be consistent, the bias and variance should go to zero as $N$ increases. That means
+
+\begin{enumerate}
+\item an unbiased and consistent estimator uses uncorrelated samples and approaches the function to be sampled,
+\item a biased and consistent estimator uses biased samples, but still approaches the function to be sampled, and
+\item a biased and inconsistent estimator fails to estimate the function to be sampled.
+\end{enumerate}
