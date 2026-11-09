@@ -31,13 +31,11 @@ float Warp::squareToUniformTrianglePdf(const Point2f &p) {
 }
 
 Point2f Warp::squareToUniformDisk(const Point2f &sample) {
-    // TODO: Exercise 5.1 c): Sample points uniformly on the unit disk with center (0,0) and radius 1
-    throw NoriException("Warp::squareToUniformDisk() is not yet implemented!");
+    return {sqrt(sample.x()) * cos(M_PI * 2 * sample.y()), sqrt(sample.x()) * sin(M_PI * 2 * sample.y())};
 }
 
 float Warp::squareToUniformDiskPdf(const Point2f &p) {
-    // TODO: Exercise 5.1 c): Return the PDF for points sampled on the unit disk (or outside of it)
-    throw NoriException("Warp::squareToUniformDiskPdf() is not yet implemented!");
+    return (p.y() * p.y() + p.x() * p.x()) <= 1 ? 1 / M_PI : 0.0f;
 }
 
 Vector3f Warp::squareToUniformSphere(const Point2f &sample) {
