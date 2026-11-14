@@ -20,6 +20,7 @@ class BSDFPathIntegrator : public Integrator {
 public:
     BSDFPathIntegrator(const PropertyList &propList){
         m_maxBounces = propList.getInteger("maxBounces", 10);
+        m_rrMinBounces = propList.getInteger("rrMinBounces", 3);
     }
 
     Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
@@ -27,10 +28,9 @@ public:
         Ray3f ray = cameraRay;
         Color3f radiance {0.0f};
         Color3f throughput {1.0f};
-        
+
         // iterate bounces
         for (int i = 0; i < m_maxBounces; ++i) {
-            
             // 1. check if we hit something
             Intersection its;
             if (!scene->rayIntersect(ray, its)) {
@@ -39,32 +39,45 @@ public:
                 if (emitter) {
                     radiance += throughput * emitter->eval(-ray.d);
                 }
-                
+
                 break;
             }
-            
+
             // 2. if emitter, evaluate and add to radiance
             auto emitter = its.mesh->getEmitter();
             if (emitter) {
                 radiance += throughput * emitter->eval(its.toLocal(-ray.d));
             }
-            
+
             // 3. compute wi
             auto wi = its.toLocal(-ray.d);
 
-            BSDFQueryRecord bRec(wi, its.uv);;
-            
-            // 4. sample wo and value from bsdf sampler 
+            BSDFQueryRecord bRec(wi, its.uv);
+
+            // 4. sample wo and value from bsdf sampler
             auto bsdf = its.mesh->getBSDF()->sample(bRec, sampler->next2D());
-            
+
             throughput *= bsdf;
-            
+
+            // russian roulette!
+            if (i >= m_rrMinBounces) {
+                float P = 1.0 - m_termination_probability;
+                Color3f L_RR = radiance / P;
+                float y = L_RR.x() + L_RR.y() + L_RR.z();
+                //float y = sampler->next1D();
+                if (y < P) {
+                    radiance /= P;
+                } else {
+                    break;
+                }
+            }
+
             // 5. compute new ray
             auto worldDirection = its.toWorld(bRec.wo);
             worldDirection.normalize();
             ray = Ray3f{its.p, worldDirection};
         }
-        
+
         return radiance;
     }
 
@@ -77,6 +90,8 @@ public:
     }
 private:
     int m_maxBounces;
+    int m_rrMinBounces;
+    float m_termination_probability = 0.9f;
 };
 
 NORI_REGISTER_CLASS(BSDFPathIntegrator, "bsdfpath");
