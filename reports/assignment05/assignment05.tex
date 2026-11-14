@@ -1,0 +1,63 @@
+\documentclass[a4paper]{common/rendering_solutions}
+\input{common/header}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{placeins}
+\usepackage{svg}
+\usepackage{xcolor}
+
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red!70!black},
+    breaklines=true,
+    breakatwhitespace=false,
+    showstringspaces=false,
+    frame=single,
+    tabsize=4,
+    captionpos=b
+}
+
+\addbibresource{references.bib}
+
+\Author{Giorgi Gogelashvili, Simon Sutoris, Erik Lahuerta}
+\Assignment{5}
+\Date{\today}
+
+\begin{document}
+
+\ExerciseHeader
+
+\Exercise{Importance Sampling: Diffuse BRDF}
+\input{sections/5_1_importance_sampling_diffuse_brdf}
+
+\Exercise{Importance Sampling: BSDF-Aware Path Tracer}
+\input{sections/5_2_importance_sampling_bsdf_aware_path_tracer}
+
+\Exercise{Russian Roulette}
+\input{sections/5_3_russian_roulette}
+
+\Exercise{Theory: Reflection and Refraction}
+\input{sections/5_4_theory_reflection_and_refraction}
+
+\Exercise{Conductor and Dialectric BSDF}
+\input{sections/5_5_conductor_and_dialectric_bsdf}
+
+\Exercise{Bonus: Step-by-Step Derivation of Hemisphere Sampling}
+\input{sections/5_6_bonus_step_by_step_derivation_of_hemisphere_sampling}
+
+%===============================================================================
+% References
+%===============================================================================
+\FloatBarrier
+\printbibliography
+
+\end{document}
+
