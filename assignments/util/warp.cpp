@@ -87,7 +87,7 @@ float Warp::squareToCosineHemispherePdf(const Vector3f &v) {
         return 0.0f;
     }
 
-    // z.z() = cos(theta_i)
+    // v.z() = cos(theta_i)
     return v.z() * INV_PI;
 }
 
