@@ -1,5 +1,123 @@
+\begin{enumerate}
+\item To implement Russian Roulette for the BSDFPathIntegrator, the code remains largely unchanged. For brevity, the unchanged code is hidden under the ellipses \code{\ldots}. In the constructor we read \code{rrMinBounces} from the configuration and initialize it with \code{m\_maxBounces} in case it is missing. In the loop, after the bsdf calculation, we play russian roulette only, if the minimum number of bounces was exceeded. We compute the $P$ and the radiances weighted by it $L_{RR}$. We compute $y$ as the sum of the colors (we treat each color dimension as its individual light which we can add together to get luminance). If y is below P, we weight the radiance by the probability. Otherwise we lost the Russian Roulette and exit the loop early. See Listing \ref{lst:roussian-roulette}.
+
+\begin{lstlisting}[caption={\code{Mesh::samplePosition}},label={lst:roussian-roulette}]
+class BSDFPathIntegrator : public Integrator {
+public:
+    BSDFPathIntegrator(const PropertyList &propList){
+        m_maxBounces = propList.getInteger("maxBounces", 10);
+        m_rrMinBounces = propList.getInteger("rrMinBounces", m_maxBounces);
+    }
+
+    Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
+        // cached values between bounces
+        Ray3f ray = cameraRay;
+        Color3f radiance {0.0f};
+        Color3f throughput {1.0f};
+
+        // iterate bounces
+        for (int i = 0; i < m_maxBounces; ++i) {
+            // 1. check if we hit something
+            ...
+            // 2. if emitter, evaluate and add to radiance
+            ...
+            // 3. compute wi
+            ...
+            // 4. sample wo and value from bsdf sampler
+            ...
+
+            // russian roulette!
+            if (i >= m_rrMinBounces) {
+                float P = 1.0 - m_termination_probability;
+                Color3f L_RR = radiance / P;
+                float y = L_RR.x() + L_RR.y() + L_RR.z();
+                if (y < P) {
+                    radiance /= P;
+                } else {
+                    break;
+                }
+            }
+
+            // 5. compute new ray
+            ...
+        }
+
+        return radiance;
+    }
+
+    ...
+
+private:
+    int m_maxBounces;
+    int m_rrMinBounces;
+    float m_termination_probability = 0.9f;
+};
+\end{lstlisting}
+
+\item On a machine with the following specs:
+
+\begin{center}
+\begin{tabular}{lr}
+OS & Arch Linux x86\_64 \\
+CPU & 12th Gen Intel(R) Core(TM) i7-1265U (4+8) @ 4.8 \\
+GPU & Intel UHD Graphics @ 1.25 GHz [Integrated] \\
+Memory & 15.28 GiB \\
+\end{tabular}
+\end{center}
+
+the configurations ran with these times:
+
+\begin{center}
+\begin{tabular}{lr}
+\texttt{dragon-bsdfpath-3-60.xml} & 24.1s \\
+\texttt{dragon-bsdfpath-60-60.xml} & 48.3s
+\end{tabular}
+\end{center}
+
+Figure \ref{fig:dragon-bsdfpath-3-60} and \ref{fig:dragon-bsdfpath-60-60} show the rendered results. Figure \ref{fig:dragon-bsdfpath-3-60-vs-reference} and \ref{fig:dragon-bsdfpath-60-60-vs-reference} show the comparison against \texttt{dragon-60-ref.exr}. Other than noise, the images appear to be identical.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/dragon-bsdfpath-3-60.png}
+        \caption{Result of \texttt{dragon-bsdfpath-3-60.xml}}
+        \label{fig:dragon-bsdfpath-3-60}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/dragon-bsdfpath-60-60.png}
+        \caption{Result of \texttt{dragon-bsdfpath-60-60.xml}}
+        \label{fig:dragon-bsdfpath-60-60}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/dragon-bsdfpath-3-60-comparison.png}
+        \caption{Comparison of \texttt{dragon-bsdfpath-3-60.xml} vs reference}
+        \label{fig:dragon-bsdfpath-3-60-vs-reference}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/dragon-bsdfpath-60-60-comparison.png}
+        \caption{Comparison of \texttt{dragon-bsdfpath-60-60.xml} vs reference}
+        \label{fig:dragon-bsdfpath-60-60-vs-reference}
+    \end{minipage}
+\end{figure}
+
+\item \texttt{dragon-bsdfpath-3-60.xml} is superiour to \texttt{dragon-bsdfpath-60-60.xml}. The first produces very similar results to the latter, but it takes only half as much time. This is because due to russian roulette, the loop exits earlier, and thus does less paths. The weighting against the probabiliy compensates for the discarded trace paths.
+
+\item Having \texttt{m\_maxBounces} is still useful, because Russian Roulette alone does not guarantee that the loop terminates. In a very unlikely scenario, the loop may run indefinitely. Having an upper bound on loops ensures that a loop will. Tangentially related: See rule 2 of NASAs "The Power of 10: Rules for Developing Safety-Critical Code": 
+
+\begin{quote}
+All loops must have a fixed upper-bound. It must be trivially possible for a checking tool to \textit{prove} statically that a preset upper-bound on the number of iterations of a loop cannot be exceeded. If the loop-bound cannot be proven statically, the rule is considered violated. \cite{holzmann2006power}
+\end{quote}
+
+\end{enumerate}
 
 
-
-%scenes/ex05/dragon/dragon-bsdfpath-3-60.xml     24.1s
-%scenes/ex05/dragon/dragon-bsdfpath-60-60.xml    48.3s

@@ -20,7 +20,7 @@ class BSDFPathIntegrator : public Integrator {
 public:
     BSDFPathIntegrator(const PropertyList &propList){
         m_maxBounces = propList.getInteger("maxBounces", 10);
-        m_rrMinBounces = propList.getInteger("rrMinBounces", 3);
+        m_rrMinBounces = propList.getInteger("rrMinBounces", m_maxBounces);
     }
 
     Color3f Li(const Scene *scene, Sampler *sampler, const Ray3f &cameraRay) const override {
