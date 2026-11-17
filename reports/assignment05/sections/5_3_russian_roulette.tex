@@ -1,7 +1,7 @@
 \begin{enumerate}
 \item To implement Russian Roulette for the BSDFPathIntegrator, the code remains largely unchanged. For brevity, the unchanged code is hidden under the ellipses \code{\ldots}. In the constructor we read \code{rrMinBounces} from the configuration and initialize it with \code{m\_maxBounces} in case it is missing. In the loop, after the BSDF calculation, we play Russian Roulette, but only if the minimum number of bounces is exceeded. We compute $P$ and the weighted radiance $L_{RR}$. We compute $y$ as the sum of the colors channels (we treat each color dimension as its individual light, which added together return their luminance). If $y$ is below $P$, we weight \texttt{radiance} by $P$. Otherwise we lost the Russian Roulette and exit the loop early. The implementation is seen in Listing \ref{lst:roussian-roulette}.
 
-\begin{lstlisting}[caption={\code{Mesh::samplePosition}},label={lst:roussian-roulette}]
+\begin{lstlisting}[caption={\code{BSDFPathIntegrator} with Russian Roulette},label={lst:roussian-roulette}]
 class BSDFPathIntegrator : public Integrator {
 public:
     BSDFPathIntegrator(const PropertyList &propList){
