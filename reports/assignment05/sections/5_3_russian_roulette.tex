@@ -112,7 +112,7 @@ Figure \ref{fig:dragon-bsdfpath-3-60} and \ref{fig:dragon-bsdfpath-60-60} show t
 
 \item \texttt{dragon-bsdfpath-3-60.xml} is superiour to \texttt{dragon-bsdfpath-60-60.xml}. The first produces very similar results to the latter, but it takes only half as much time. This is because due to russian roulette, the loop exits earlier, and thus does less paths. The weighting against the probabiliy compensates for the discarded trace paths.
 
-\item Having \texttt{m\_maxBounces} is still useful, because Russian Roulette alone does not guarantee that the loop terminates. In a very unlikely scenario, the loop may run indefinitely. Having an upper bound on loops ensures that a loop will. Tangentially related: See rule 2 of NASAs "The Power of 10: Rules for Developing Safety-Critical Code": 
+\item Having \texttt{m\_maxBounces} is still useful, because Russian Roulette alone does not guarantee that the loop terminates. In a very unlikely scenario, the loop may run indefinitely. Having an upper bound on loops ensures that a loop will end. Tangentially related: See rule 2 of NASAs "The Power of 10: Rules for Developing Safety-Critical Code": 
 
 \begin{quote}
 All loops must have a fixed upper-bound. It must be trivially possible for a checking tool to \textit{prove} statically that a preset upper-bound on the number of iterations of a loop cannot be exceeded. If the loop-bound cannot be proven statically, the rule is considered violated. \cite{holzmann2006power}
