@@ -60,16 +60,33 @@ float Warp::squareToCosineHemispherePdf(const Vector3f &v) {
 }
 \end{lstlisting}
 
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=\linewidth]{pictures/warptest-2.png}
+%    \caption{Transformation of independent samples into the cosine-weighted hemisphere}
+%    \label{fig:placeholder}
+%\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=\linewidth]{pictures/warptest-3.png}
+%    \caption{Successful $X^{2}$ hypothesis test}
+%    \label{fig:placeholder}
+%\end{figure}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{common/Cosine_Warptest.png}
-    \caption{Transformation of independent samples into the cosine-weighted hemisphere}
-    \label{fig:placeholder}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{common/Hypothesis_Test.png}
-    \caption{Successful $X^{2}$ hypothesis test}
-    \label{fig:placeholder}
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/warptest-2.png}
+        \caption{Transformation of independent samples into the cosine-weighted hemisphere}
+        \label{fig:warp-transformation}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/warptest-3.png}
+        \caption{Successful $X^{2}$ hypothesis test}
+        \label{fig:chi-square-test}
+    \end{minipage}
 \end{figure}
 \end{enumerate}

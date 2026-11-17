@@ -64,7 +64,6 @@ public:
                 float P = 1.0 - m_termination_probability;
                 Color3f L_RR = radiance / P;
                 float y = L_RR.x() + L_RR.y() + L_RR.z();
-                //float y = sampler->next1D();
                 if (y < P) {
                     radiance /= P;
                 } else {
