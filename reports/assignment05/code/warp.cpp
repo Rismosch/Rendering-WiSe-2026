@@ -1,0 +1,104 @@
+/*
+    This file is part of Nori, a simple educational ray tracer
+
+    Copyright (c) 2015 by Wenzel Jakob
+*/
+
+#include "nori/common.h"
+#include <nori/warp.h>
+#include <nori/vector.h>
+#include <nori/frame.h>
+#include <cmath>
+
+NORI_NAMESPACE_BEGIN
+
+Point2f Warp::squareToUniformSquare(const Point2f &sample) {
+    return sample;
+}
+
+float Warp::squareToUniformSquarePdf(const Point2f &sample) {
+    return ((sample.array() >= 0).all() && (sample.array() <= 1).all()) ? 1.0f : 0.0f;
+}
+
+Point2f Warp::squareToUniformTriangle(const Point2f &sample) {
+    // inversion sampling
+    return {sqrt(sample.x()), sqrt(sample.x()) * sample.y()};
+}
+
+float Warp::squareToUniformTrianglePdf(const Point2f &p) {
+    // uniform triangle => constant pdf everywhere
+    // area of the unit triangel = 1/2 => pdf of 2
+    return (p.y() >= 0 && (1 - p.x() + p.y() <= 1) && p.x() <= 1) ? 2.0f : 0.0f;
+}
+
+Point2f Warp::squareToUniformDisk(const Point2f &sample) {
+    return {
+        sqrt(sample.x()) * cos(M_PI * 2 * sample.y()),
+        sqrt(sample.x()) * sin(M_PI * 2 * sample.y())
+    };
+}
+
+float Warp::squareToUniformDiskPdf(const Point2f &p) {
+    return (p.y() * p.y() + p.x() * p.x()) <= 1 ? 1 / M_PI : 0.0f;
+}
+
+Vector3f Warp::squareToUniformSphere(const Point2f &sample) {
+    const float cosTheta = 1.0f - 2.0f * sample.x();
+    const float sinTheta = std::sqrt(std::max(0.0f, 1.0f-cosTheta*cosTheta));
+
+    const float sinPhi = std::sin(2.0f * M_PI * sample.y());
+    const float cosPhi = std::cos(2.0f * M_PI * sample.y());
+
+    return Vector3f(cosPhi * sinTheta, sinPhi * sinTheta, cosTheta);
+}
+
+float Warp::squareToUniformSpherePdf(const Vector3f &v) {
+    (void) v; // unused
+    return INV_FOURPI;
+}
+
+Vector3f Warp::squareToUniformHemisphere(const Point2f &sample) {
+    const float cosTheta = sample.x();
+    const float sinTheta = std::sqrt(std::max(0.0f, 1.0f - cosTheta*cosTheta));
+
+    const float sinPhi = std::sin(2.0f * M_PI * sample.y());
+    const float cosPhi = std::cos(2.0f * M_PI * sample.y());
+
+    return Vector3f(cosPhi * sinTheta, sinPhi * sinTheta, cosTheta);
+}
+
+float Warp::squareToUniformHemispherePdf(const Vector3f &v) {
+    if (v.z() < 0.0f)
+        return 0.0f;
+    return INV_TWOPI;
+}
+
+Vector3f Warp::squareToCosineHemisphere(const Point2f &sample) {
+    auto disk = Warp::squareToUniformDisk(sample);
+    return {
+        disk.x(),
+        disk.y(),
+        std::sqrt(1.0f - sample.x())
+    };
+}
+
+float Warp::squareToCosineHemispherePdf(const Vector3f &v) {
+    if (v.z() < 0.0f) {
+        return 0.0f;
+    }
+
+    // v.z() = cos(theta_i)
+    return v.z() * INV_PI;
+}
+
+Vector3f Warp::squareToBeckmann(const Point2f &sample, float alpha) {
+    // TODO: Exercise 10.1 a): Sample directions according to the Beckmann distribution
+    throw NoriException("Warp::squareToBeckmann() is not yet implemented!");
+}
+
+float Warp::squareToBeckmannPdf(const Vector3f &m, float alpha) {
+    // TODO: Exercise 10.1 a) Return the PDF of directions sampled according to the Beckmann distribution (or invalid directions)
+    throw NoriException("Warp::squareToBeckmannPdf() is not yet implemented!");
+}
+
+NORI_NAMESPACE_END

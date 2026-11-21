@@ -25,6 +25,8 @@ compile_commands.json
 *.fls
 *.out
 *.pdf
+*.bcf
+*.run.xml
 
 # latex inkscape
 *svg-inkscape

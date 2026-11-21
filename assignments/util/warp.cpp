@@ -59,7 +59,7 @@ float Warp::squareToUniformSpherePdf(const Vector3f &v) {
 
 Vector3f Warp::squareToUniformHemisphere(const Point2f &sample) {
     const float cosTheta = sample.x();
-    const float sinTheta = std::sqrt(std::max(0.0f, 1.0f-cosTheta*cosTheta));
+    const float sinTheta = std::sqrt(std::max(0.0f, 1.0f - cosTheta*cosTheta));
 
     const float sinPhi = std::sin(2.0f * M_PI * sample.y());
     const float cosPhi = std::cos(2.0f * M_PI * sample.y());

@@ -1,12 +1,15 @@
 \documentclass[a4paper]{common/rendering_solutions}
 \input{common/header}
 
+% sort packages alphabetically please
 \usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{placeins}
 \usepackage{svg}
 \usepackage{xcolor}
+% sort packages alphabetically please
 
 \lstset{
     language=C++,
@@ -35,14 +38,18 @@
 
 \ExerciseHeader
 
-\Exercise{Importance Sampling: Diffuse BRDF}
-\input{sections/5_1_importance_sampling_diffuse_brdf}
+%\Exercise{Importance Sampling: Diffuse BRDF}
+%\input{sections/5_1_importance_sampling_diffuse_brdf}
+%
+%\Exercise{Importance Sampling: BSDF-Aware Path Tracer}
+%\input{sections/5_2_importance_sampling_bsdf_aware_path_tracer}
+%
+%\Exercise{Russian Roulette}
+%\input{sections/5_3_russian_roulette}
 
-\Exercise{Importance Sampling: BSDF-Aware Path Tracer}
-\input{sections/5_2_importance_sampling_bsdf_aware_path_tracer}
-
-\Exercise{Russian Roulette}
-\input{sections/5_3_russian_roulette}
+% set the subsection couter to 3, such that the sections below are rendered as 
+% 5.4, 5.5 and 5.6 in case the sections above are commented out.
+\setcounter{subsection}{3} 
 
 \Exercise{Theory: Reflection and Refraction}
 \input{sections/5_4_theory_reflection_and_refraction}
