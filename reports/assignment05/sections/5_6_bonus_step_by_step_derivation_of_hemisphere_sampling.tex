@@ -1,1 +1,86 @@
-TODO
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{Ex 5.5}
+\author{ERIK LAHUERTA ARTIEDA}
+\date{November 2026}
+
+\begin{document}
+
+\maketitle
+
+\subsection{Preliminaries \& Notation}
+We will be drawing our uniform samples from a uniform distribution $U(0,1) \sim r_{1}, r_{2}$.\newline \newline
+$w$ is our vector representation on the sphere, given by the convention $(r,\theta, \varphi)$, where r is the radius, $\theta$ is the polar angle, and $\varphi$ is the azimuthal angle. Since we are only interested in directions, r is not relevant. Then our differentials follow:
+\[dw = sin(\theta)\space d\theta d\varphi\]
+Similarly, because we are interested in $p(w)$, but want to convert to our angles, it also follows that:
+\[p(w)=p(\theta, \varphi)\space sin(\theta)\] \newline
+On cartesian coordinates, the conversion from polar to cartesian is as follows:
+\[x=r\sin(\theta)\cos(\varphi)\]
+\[y=r\sin(\theta)\sin(\varphi)\]
+\[z=r\cos(\theta)
+\]
+These properties are used throughout the rest of the exercise and are useful to keep in mind.
+
+\subsection{Uniformly Sampling a Hemisphere}
+We will use inversion sampling. Sampling uniformly across the hemisphere means that: $p(w)=c$ for all $w$. Because this is a density function, it must mean that the integral over the domain must be equal to 1. Then:
+\begin{align*}
+\int_{H^{2}}p(w) dw
+&=\int_{0}^{2\pi}\int_{0}^{2/\pi}c\ sin(\theta)\ d\theta d\varphi \\
+&= c\int_{0}^{2\pi}\int_{0}^{2/\pi}sin(\theta) \ d\theta d\varphi \\
+&= c\int_{0}^{2\pi}\left[-\cos(\theta)\right]^{2/\pi}_{0} d\varphi \\
+&= c\int_{0}^{2\pi}1\ d\varphi \\
+&=c*2\pi=1; \\ 
+p(w) &=\frac{1}{2\pi}\ ;\\
+p(\theta, \varphi) &= \frac{sin(\theta)}{2\pi} 
+\end{align*}
+
+Now that we have the joint distribution, we must find the marginal and conditional distributions. In this case, we will condition $\varphi\vert\theta$, although the reverse is valid as well.
+
+\[
+p_{\theta}(\theta)=\int^{2\pi}_{0}p(\theta, \varphi)\ d\varphi = \int^{2\pi}_{0}\frac{\sin(\theta)}{2\pi}\ d\varphi=\left[\varphi\frac{\sin(\theta)}{2\pi} \right]^{2\pi}_{0} = \sin(\theta)
+\]
+\[
+p_{\varphi\vert\theta}(\varphi\vert\theta)=\frac{p(\theta,\varphi)}{p(\theta)}=\frac{\frac{\sin(\theta)}{2\pi}}{\sin(\theta)}=\frac{1}{2\pi}
+\]
+
+Now that we have found the marginal and conditional densities, we must find their CDF's in order to apply the inversion method:
+
+\[
+P_{\theta}(\theta)=\int_{0}^{\theta} \sin(\theta)\ d\theta= 1-\cos(\theta)
+\]
+\[
+P_{\varphi\vert\theta}(\varphi\vert\theta) = \int^{\varphi}_{0}\frac{1}{2\pi}\ d\varphi = \frac{\varphi}{2\pi}
+\]
+Now we must apply the inversion method in order to convert uniform variables from 0 to 1 into uniformly distributed samples in polar coordinates.
+\[
+P_{\theta}(\theta)=1-\cos(\theta)=r_{1};\ \theta=\cos^{-1}(1-r_{1})=\cos^{-1}(r_{1})
+\]
+\[
+P_{\varphi\vert\theta}(\varphi\vert\theta)=\frac{\varphi}{2\pi}=r_{2};\ \varphi =2\pi r_{2}
+\]
+We can safely convert $1-r_{1}$ to $r_{1}$, since both uniformly go from 0 to 1, but reversed.
+We now have a conversion from uniform variables into our polar angles. The last step is to convert from polar coordinates to cartesian coordinates. Since we are only sampling the direction, a simplifying step is saying that the radius is 1.
+There are useful trigonometric properties for the sake of simplification. One of them is: $\sin(\cos^{-1}(x))=\sqrt{1-x^{2}}$. Then it follows that: $\sin(\theta)=\sqrt{1-r_{1}^{2}}$
+Another useful property is $\cos(\cos^{-1}(x))=x. $ It then follows that: $\cos(\theta)=r_{1}$
+\begin{align*} 
+x&=\sqrt{1-r_{1}^{2}}\ *\cos(2\pi r_{2}) \\
+y&=\sqrt{1-r_{1}^{2}}\ *\sin(2\pi r_{2}) \\
+z&=r_{1}
+\end{align*}
+This is the final result that we need to implement the sampling.
+\subsection{Cosine-Weighted Hemisphere Sampling}
+This time, we would like to sample from a PDF $p(w)\propto\cos(\theta)$. Following the process from last section:
+\begin{align*}
+\int_{H^{2}}p(w)\  dw
+&=\int_{0}^{2\pi}\int_{0}^{2/\pi}c\ \cos(\theta)\sin(\theta)\ d\theta d\varphi \\
+&= c\int_{0}^{2\pi}\left[-\frac{1}{2}\cos^{2}(\theta)\right]^{2/\pi}_{0} d\varphi \\
+&= c\int_{0}^{2\pi}0.5\ d\varphi \\
+&=c*\pi=1; \\ 
+p(w) &=\frac{1}{\pi}\ ;\\
+p(\theta, \varphi) &= \frac{\cos(\theta)\sin(\theta)}{\pi} 
+\end{align*}
+Instead of computing marginal and conditional densities, this time we shall use \textit{Malley's method} to generate the cosine-weighted points. This method consists of generating uniform samples on the unit disk, projecting them to the hemisphere above, and computing the direction from the center of the sphere. 
+Using this method, we can use the sampling that was used on the disk sampling: $(r,\theta)=(\sqrt{r_{1}}, 2\pi r_{2})$. This method is equivalent to the points that we would obtain from doing the inversion method, so the final samples end up being the same.
+\end{document}
