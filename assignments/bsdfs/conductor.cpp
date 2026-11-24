@@ -31,7 +31,7 @@ float compute_fresnel(const Vector3f& v, float eta, float k) {
     float R_p = R_s * (a2 + b2 - 2 * a * sin * tan + sin2 * tan2) /
                       (a2 + b2 + 2 * a * sin * tan + sin2 * tan2);
 
-    return R_p;
+    return 0.5f * (R_s + R_p);
 }
 
 /**
@@ -100,7 +100,6 @@ public:
             compute_fresnel(bRec.wo, m_eta.b(), m_k.b())
         );
         bRec.measure = EDiscrete;
-        bRec.eta = m_eta.getLuminance();
 
         float costheta = std::abs(Frame::cosTheta(bRec.wo));
         return {
