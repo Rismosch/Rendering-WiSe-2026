@@ -60,68 +60,57 @@ public:
      */
     Color3f sample(BSDFQueryRecord &bRec, const Point2f &sample) const override {
         bRec.wi.normalize();
+        bRec.measure = EDiscrete;
 
+        // determine the incident and transmitted IOR
+        float etaI = m_extIOR;
+        float etaT = m_intIOR;
+        float sgn = 1.0;
+
+        if (bRec.wi.z() < 0.0f) {
+            std::swap(etaI, etaT);
+            sgn = -1.0;
+        }
+
+        // relative IOR
+        float eta = etaI / etaT;
+
+        // fresnel reflectance
+        float cosThetaI = std::abs(bRec.wi.z());
+        float F_r = fresnelDielectric(cosThetaI, etaI, etaT);
+
+        // reflection direction
         Vector3f wr = Vector3f{
             -bRec.wi.x(),
             -bRec.wi.y(),
             bRec.wi.z(),
         };
 
-        float F_r = fresnelDielectric(Frame::cosTheta(wr), m_intIOR, m_extIOR);
+        // check for total internal reflection
+        float sinThetaT2 = eta * eta * (1.0f - cosThetaI * cosThetaI);
 
-        bRec.measure = EDiscrete;
-        bRec.eta = m_extIOR / m_intIOR;
+        if (sinThetaT2 >= 1.0) {
+            bRec.wo = wr;
+            return {1.0f};
+        }
 
-        if (F_r < sample.x()) {
+        // choose relfection or refraction
+        if (F_r > sample.x()) {
             // reflection
             bRec.wo = wr;
-            float costheta = std::abs(Frame::cosTheta(wr));
-            return {F_r / costheta};
+            return {1.0};
         } else {
             // refraction
-            float sgn = 1.0;
-            if (bRec.wi.z() < 0.0f) {
-                bRec.eta = 1.0f / bRec.eta;
-                sgn = -1.0;
-            }
+            float cosThetaT = std::sqrt(1.0f - sinThetaT2);
 
-            float x = bRec.wi.x();
-            float y = bRec.wi.y();
-            float z = bRec.wi.z();
-            float eta2 = bRec.eta * bRec.eta;
-
-            float test = eta2 * (1.0f - z * z);
-            if (test > 1.0) {
-                bRec.wo = wr;
-                return {1.0f};
-            }
-
-            Vector3f wt = Vector3f{
-                -(bRec.eta * x),
-                -(bRec.eta * y),
-                -sgn * std::sqrt(1 - eta2 * (1.0f - z * z))
+            bRec.wo = Vector3f{
+                -eta * bRec.wi.x(),
+                -eta * bRec.wi.y(),
+                -sgn * cosThetaT,
             };
-            bRec.wo = wt;
 
-            float costheta = std::abs(Frame::cosTheta(wt));
-
-            std::string s;
-            s += " intIOR: ";
-            s += std::to_string(m_intIOR);
-            s += " extIOR: ";
-            s += std::to_string(m_extIOR);
-            s += " eta: ";
-            s += std::to_string(bRec.eta);
-            s += " Fr: ";
-            s += std::to_string(F_r);
-            s += " wi: ";
-            s += bRec.wi.toString();
-            s += " cos: ";
-            s += std::to_string(costheta);
-            s += "\n";
-
-            //std::cout << s;
-            return {bRec.eta * bRec.eta * (1.0f - F_r) / costheta};
+            bRec.eta = etaT / etaI;
+            return {eta * eta};
         }
     }
 
