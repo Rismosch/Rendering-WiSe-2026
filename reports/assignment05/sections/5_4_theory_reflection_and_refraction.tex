@@ -1,1 +1,97 @@
-TODO
+
+\paragraph{a) The reflected direction.}
+
+The derivation follows the geometric explanation in
+\href{https://www.pbr-book.org/3ed-2018/Reflection_Models/Specular_Reflection_and_Transmission#SpecularReflection}{\textit{Physically Based Rendering}}.
+
+The reflected direction can be computed using simple vector geometry.
+The incident direction $\omega_i$, the surface normal $\mathbf{n}$,
+and the reflected direction $\omega_r$ all lie in the same plane.
+For specular reflection, the reflected direction makes the same
+angle with the normal as the incident direction. Therefore,
+\[
+    \omega_i \cdot \mathbf{n}
+    = \omega_r \cdot \mathbf{n}.
+\]
+
+We can decompose $\omega_i$ into two components: one parallel
+to the surface normal and one perpendicular to it,
+\[
+    \omega_i = \omega_{\parallel} + \omega_{\perp}.
+\]
+Since $\mathbf{n}$ is a unit vector,
+\[
+\begin{aligned}
+    \omega_{\parallel}
+        &= (\omega_i \cdot \mathbf{n})\mathbf{n},\\
+    \omega_{\perp}
+        &= \omega_i - (\omega_i \cdot \mathbf{n})\mathbf{n}.
+\end{aligned}
+\]
+
+For perfect reflection, the normal component stays the same,
+while the perpendicular component changes sign. Thus,
+\[
+\begin{aligned}
+    \omega_r
+        &= \omega_{\parallel} - \omega_{\perp}\\
+        &= \omega_{\parallel} - (\omega_i-\omega_{\parallel})\\
+        &= -\omega_i + 2(\omega_i\cdot\mathbf{n})\mathbf{n}.
+\end{aligned}
+\]
+
+\paragraph{b) The local direction.}
+
+In local coordinates, the surface normal is
+$\mathbf{n}=(0,0,1)^\top$. Substituting this into the
+reflection equation gives
+\[
+\begin{aligned}
+    \omega_r
+        &= -\omega_i + 2(\omega_i\cdot\mathbf{n})\mathbf{n}\\
+        &= -(\omega_x,\omega_y,\omega_z)^\top
+           + 2\omega_z(0,0,1)^\top\\
+        &= (-\omega_x,-\omega_y,\omega_z)^\top.
+\end{aligned}
+\]
+
+
+\paragraph{c) The refracted direction.}
+
+Since incident rays can arrive from either side of the surface,
+we first determine the incident and transmitted refractive indices:
+\[
+(\eta_i,\eta_t)=
+\begin{cases}
+(\eta_{\mathrm{ext}},\eta_{\mathrm{int}}), & \omega_z\geq 0,\\
+(\eta_{\mathrm{int}},\eta_{\mathrm{ext}}), & \omega_z<0.
+\end{cases}
+\]
+
+Let $\eta=\eta_i/\eta_t$. From Snell's law,
+\[
+    \eta_i\sin\theta_i=\eta_t\sin\theta_t.
+\]
+Like in reflection all vectors lie in the same plane.
+For unit directions, the sine of the angle with the normal
+equals the length of the perpendicular component. Therefore,
+\[
+    \omega_{t,x}=-\eta\omega_x,\qquad
+    \omega_{t,y}=-\eta\omega_y.
+\]
+
+Since $\omega_t$ must also be a unit vector,
+\[
+    \omega_{t,z}^2=1-\eta^2(1-\omega_z^2).
+\]
+If we assume that the refracted direction points into the opposite medium,
+its normal component has the opposite sign to $\omega_z$:
+\[
+\omega_t=
+\begin{pmatrix}
+-\eta\omega_x\\
+-\eta\omega_y\\
+-\operatorname{sgn}(\omega_z)
+\sqrt{1-\eta^2(1-\omega_z^2)}
+\end{pmatrix}.
+\]
